@@ -2,28 +2,90 @@
 
 ```mermaid
 erDiagram
-    CSO ||--o{ GRANT : receives
-    CSO ||--|{ BANK_ACCOUNT : has
-    
-    
+  CSO ||--o{ GRANT : receives
+  CSO ||--|{ BANK_ACCOUNT : has
+  
+  GRANT }o--|| FINANCIER : paid
+  GRANT ||..o{ PARTNERSHIP : "can have"
+  GRANT ||--|{ PAYMENT : has
+  GRANT ||--o{ DOCUMENT : has
+  GRANT ||--o{ REPORT_SCHEDULE : has
+  GRANT ||--|{ BUDGET_LINE : has
+  GRANT ||--o{ NOTE : "can have"
+  
 
-    GRANT }o--|| FINANCIER : paid
-    GRANT ||..o{ PARTNERSHIP : "can have"
-    GRANT ||--|{ PAYMENTS : has
-    GRANT ||--o{ DOCUMENTS : has
-    GRANT ||--o{ REPORT_SCHEDULE : has
-    GRANT ||--|{ BUDGET_LINE : has
-    
+  BUDGET_LINE |o--o{ BUDGET_CATEGORY : has
+  BUDGET_LINE ||..|{ BUDGET_PARTNER_DETAILS : "can have"
 
-    BUDGET_LINE |o--o{ BUDGET_CATEGORY : has
-    BUDGET_LINE ||..|{ BUDGET_PARTNER_DETAILS : "can have"
+  EXPENSE }o--|| EXPENSE_CATEGORY : "belongs to"
+  EXPENSE }o--|| BUDGET_LINE : "allocated to"
 
-    EXPENSES }o--|| EXPENSE_CATEGORY : "belongs to"
-    EXPENSES }o--|| BUDGET_LINE : "allocated to"
+  PARTNERSHIP }|--o{ PARTNER : has
+  BUDGET_PARTNER_DETAILS }|--|| PARTNER : has
+  
+  CSO {
+    string    Name
+  }
 
-    PARTNERSHIP }|--o{ PARTNER : has
-    BUDGET_PARTNER_DETAILS }|--|| PARTNER : has
-    
+  BANK_ACCOUNT {
+      string BankName
+      string IBAN
+      string Alias
+      string ShortIBAN
+  }
+
+  FINANCIER {
+    string    Name
+    string    Description
+    string    Alias
+    string    LegalRepresentative
+    string    ContactPerson
+    string    ContactEmail
+    string    ContactPhone
+    string    ContactAddress
+  }
+
+  GRANT {
+    enum      FundType
+    number    Value
+    number    ValueLocal
+    number    SelfCoFundValue
+    number    ReGrantedValue
+    number    ReGrantedValueLocal
+    string    Currency
+    string    CurrencyLocal
+    enum      Type
+    string    Financier
+    string    Owner
+    string    OwnerEmail
+    string    OwnerPhone
+    string    OwnerAddress
+    date      StartDate
+    date      EndDate
+    string    ProjectName
+  }
+
+  PARTNERSHIP {
+    string    Partner
+    number    Value
+    string    Details
+  }
+
+  REPORT_SCHEDULE {
+    date      Date
+    enum      Type
+  }
+
+  DOCUMENT {
+    string    FileName
+    date      Date
+    binary    Contents
+  }
+
+  NOTE {
+    date      Date
+    string    Content
+  }
 
 ```
 
