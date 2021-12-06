@@ -13,6 +13,7 @@ erDiagram
   GRANT ||--|{ BUDGET_LINE : has
   GRANT ||--o{ NOTE : "can have"
   
+  
 
   BUDGET_LINE |o--o{ BUDGET_CATEGORY : has
   BUDGET_LINE ||..|{ BUDGET_PARTNER_DETAILS : "can have"
