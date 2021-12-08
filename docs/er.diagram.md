@@ -3,7 +3,8 @@
 ```mermaid
 erDiagram
   CSO ||--o{ GRANT : receives
-  CSO ||--|{ BANK_ACCOUNT : has
+  CSO ||--|{ ACCOUNT : has
+  CSO ||--|{ EXPENSE_CATEGORY : has
   
   GRANT }o--|| FINANCIER : paid
   GRANT ||..o{ PARTNERSHIP : "can have"
@@ -18,21 +19,31 @@ erDiagram
   BUDGET_LINE |o--o{ BUDGET_CATEGORY : has
   BUDGET_LINE ||..|{ BUDGET_PARTNER_DETAILS : "can have"
 
-  EXPENSE }o--|| EXPENSE_CATEGORY : "belongs to"
-  EXPENSE }o--|| BUDGET_LINE : "allocated to"
+  BALANCE_SHEET_ITEM }o--|| BALANCE_SHEET_ITEM_CATEGORY : "belongs to"
+  BALANCE_SHEET_ITEM }o--o{ PAYMENT : "can have"
+  BALANCE_SHEET_ITEM }o--o{ GRANT : "can have"
+  BALANCE_SHEET_ITEM ||--|| ACCOUNT
+
+  BALANCE_SHEET_ITEM }o--o{ EXPENSE : "associated with"
+  
+  EXPENSE }o--o{ BUDGET_LINE : "can be allocated to"
+  EXPENSE }o--o{ GRANT : "can be allocated to"
+  EXPENSE ||--|| EXPENSE_CATEGORY : "is"
 
   PARTNERSHIP }|--o{ PARTNER : has
   BUDGET_PARTNER_DETAILS }|--|| PARTNER : has
-  
-  CSO {
-    string    Name
-  }
 
-  BANK_ACCOUNT {
-      string BankName
-      string IBAN
-      string Alias
-      string ShortIBAN
+```
+
+```mermaid
+erDiagram
+
+  ACCOUNT {
+        string  BankName
+        string  IBAN
+        string  Alias
+        string  ShortIBAN
+        bool    IsCash
   }
 
   FINANCIER {
@@ -88,22 +99,35 @@ erDiagram
     string    Content
   }
 
+  CSO {
+    string    Name
+  }
+
+  BALANCE_SHEET_ITEM {
+    enum    Kind <!-- income, expense -->
+    enum    TypeOfIncome <!-- grant, q-point from product file -->
+    string  #GrantId <!-- FK When type of income is grant -->
+    string  #PaymentId <!-- FK optional payment association -->
+  }
+
+  PAYMENT {
+    number    Value
+    string    Currency
+    number    ValueLocal
+  }
+
+  EXPENSE {
+    enum      Type
+    enum      Category <!-- EXPENSE_CATEGORY ID -->
+    string    #BUDGET_LINE
+    string    #GRANT
+    number    Value
+    string    Currency
+    number    ValueLocal
+  }
 ```
 
-```mermaid
-erDiagram
-  GRANT {
-        enum    FundType
-        number  Value
-        number  ValueLocal
-  }
-  BANK_ACCOUNT {
-        string BankName
-        string IBAN
-        string Alias
-        string ShortIBAN
-  }
-```
+EUR -> USD -> RON
 
 CO-fund example
 ---
