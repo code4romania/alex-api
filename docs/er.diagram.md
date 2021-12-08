@@ -127,8 +127,6 @@ erDiagram
   }
 ```
 
-EUR -> USD -> RON
-
 CO-fund example
 ---
 FUll sum = 100k
