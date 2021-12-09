@@ -2,43 +2,128 @@
 
 ```mermaid
 erDiagram
-    CSO ||--o{ GRANT : receives
-    CSO ||--|{ BANK_ACCOUNT : has
-    
-    
+  CSO ||--o{ GRANT : receives
+  CSO ||--|{ ACCOUNT : has
+  CSO ||--|{ EXPENSE_CATEGORY : has
+  
+  GRANT }o--|| FINANCIER : paid
+  GRANT ||..o{ PARTNERSHIP : "can have"
+  GRANT ||--|{ PAYMENT : has
+  GRANT ||--o{ DOCUMENT : has
+  GRANT ||--o{ REPORT_SCHEDULE : has
+  GRANT ||--|{ BUDGET_LINE : has
+  GRANT ||--o{ NOTE : "can have"
+  
+  
 
-    GRANT }o--|| FINANCIER : paid
-    GRANT ||..o{ PARTNERSHIP : "can have"
-    GRANT ||--|{ PAYMENTS : has
-    GRANT ||--o{ DOCUMENTS : has
-    GRANT ||--o{ REPORT_SCHEDULE : has
-    GRANT ||--|{ BUDGET_LINE : has
-    
+  BUDGET_LINE |o--o{ BUDGET_CATEGORY : has
+  BUDGET_LINE ||..|{ BUDGET_PARTNER_DETAILS : "can have"
 
-    BUDGET_LINE |o--o{ BUDGET_CATEGORY : has
-    BUDGET_LINE ||..|{ BUDGET_PARTNER_DETAILS : "can have"
+  BALANCE_SHEET_ITEM }o--|| BALANCE_SHEET_ITEM_CATEGORY : "belongs to"
+  BALANCE_SHEET_ITEM }o--o{ PAYMENT : "can have"
+  BALANCE_SHEET_ITEM }o--o{ GRANT : "can have"
+  BALANCE_SHEET_ITEM ||--|| ACCOUNT
 
-    EXPENSES }o--|| EXPENSE_CATEGORY : "belongs to"
-    EXPENSES }o--|| BUDGET_LINE : "allocated to"
+  BALANCE_SHEET_ITEM }o--o{ EXPENSE : "associated with"
+  
+  EXPENSE }o--o{ BUDGET_LINE : "can be allocated to"
+  EXPENSE }o--o{ GRANT : "can be allocated to"
+  EXPENSE ||--|| EXPENSE_CATEGORY : "is"
 
-    PARTNERSHIP }|--o{ PARTNER : has
-    BUDGET_PARTNER_DETAILS }|--|| PARTNER : has
-    
+  PARTNERSHIP }|--o{ PARTNER : has
+  BUDGET_PARTNER_DETAILS }|--|| PARTNER : has
 
 ```
 
 ```mermaid
 erDiagram
-  GRANT {
-        enum    FundType
-        number  Value
-        number  ValueLocal
+
+  ACCOUNT {
+        string  BankName
+        string  IBAN
+        string  Alias
+        string  ShortIBAN
+        bool    IsCash
   }
-  BANK_ACCOUNT {
-        string BankName
-        string IBAN
-        string Alias
-        string ShortIBAN
+
+  FINANCIER {
+    string    Name
+    string    Description
+    string    Alias
+    string    LegalRepresentative
+    string    ContactPerson
+    string    ContactEmail
+    string    ContactPhone
+    string    ContactAddress
+  }
+
+  GRANT {
+    enum      FundType
+    number    Value
+    number    ValueLocal
+    number    SelfCoFundValue
+    number    ReGrantedValue
+    number    ReGrantedValueLocal
+    string    Currency
+    string    CurrencyLocal
+    enum      Type
+    string    Financier
+    string    Owner
+    string    OwnerEmail
+    string    OwnerPhone
+    string    OwnerAddress
+    date      StartDate
+    date      EndDate
+    string    ProjectName
+  }
+
+  PARTNERSHIP {
+    string    Partner
+    number    Value
+    string    Details
+  }
+
+  REPORT_SCHEDULE {
+    date      Date
+    enum      Type
+  }
+
+  DOCUMENT {
+    string    FileName
+    date      Date
+    binary    Contents
+  }
+
+  NOTE {
+    date      Date
+    string    Content
+  }
+
+  CSO {
+    string    Name
+  }
+
+  BALANCE_SHEET_ITEM {
+    enum    Kind <!-- income, expense -->
+    enum    TypeOfIncome <!-- grant, q-point from product file -->
+    string  #GrantId <!-- FK When type of income is grant -->
+    string  #PaymentId <!-- FK optional payment association -->
+  }
+
+  PAYMENT {
+    number    Value
+    string    Currency
+    number    ValueLocal
+  }
+
+  EXPENSE {
+    enum      Type
+    enum      Category <!-- EXPENSE_CATEGORY ID -->
+    string    #BUDGET_LINE
+    string    #GRANT
+    number    Value
+    string    Currency
+    number    ValueLocal
   }
 ```
 
