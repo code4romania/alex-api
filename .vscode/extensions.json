@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-wsl",
+        "ms-azuretools.vscode-docker",
+        "yzhang.markdown-all-in-one",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "bierner.markdown-mermaid"
+    ]
+}
