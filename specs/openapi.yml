@@ -1,0 +1,66 @@
+openapi: '3.0.2'
+info:
+  title: ALEX API
+  version: 1.0.0
+  description: ALEX API consumed by ALEX clients.
+servers:
+  - url: https://api.alex.test
+paths:
+  /v1/hc:
+    get:
+      tags:
+        - "health-check"
+      summary: Health check endpoint.
+      description: Health check endpoint. 
+      responses:
+        '200':
+          description: Response is OK on API running and reachable.
+  /v1/accounts:
+    get:
+      tags:
+          - "accounts"
+      summary: Gets accounts' list.
+      description: Gets accounts' list based on search filter.
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+          required: false
+          description: >
+            Search parameter is used to filter accounts using IBAN, alias and short IBAN.
+            If no account matches search criteria then an empty array is returned.
+      responses:
+        '200':
+          description: Gets accounts' list.
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: "./schemas/account.yml"
+        '400':
+          description: "Invalid parameter."
+  /v1/accounts/{id}:
+    get:
+      tags:
+        - "accounts"
+      summary: Gets account.
+      description: Gets account based on ID.
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: string
+          required: true
+          description: ID parameter should represent the IBAN of the account.
+      responses:
+        '200':
+          description: Gets specified account.
+          content:
+            application/json:
+              schema:
+                $ref: "./schemas/account.yml"
+        '400':
+          description: "Invalid parameter."
+        '404':
+          description: "Not found."
