@@ -8,7 +8,7 @@ Use ```swagger-cli``` to build these specs.
 
 ```Bash
 npm install -g swagger-cli
-swagger-cli bundle openapi.yml --outfile _build/openapi.yml --type yaml
+swagger-cli bundle openapi.yml --outfile _build/openapi.yml --type yaml --dereference
 ```
 
 ## Useful resources
