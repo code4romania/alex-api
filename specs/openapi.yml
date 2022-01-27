@@ -15,6 +15,9 @@ paths:
       responses:
         '200':
           description: Response is OK on API running and reachable.
+        # Common responses
+        '400':
+          $ref: '#/components/responses/InvalidOperation'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
   /v1/accounts:
@@ -32,6 +35,10 @@ paths:
           description: >
             Search parameter is used to filter accounts using IBAN, alias and short IBAN.
             If no account matches search criteria then an empty array is returned.
+        # Common search query parameters.
+        - $ref: "./parameters/common-sort-parameter.yml"
+        - $ref: "./parameters/common-skip-parameter.yml"
+        - $ref: "./parameters/common-top-parameter.yml"
       responses:
         '200':
           description: Gets accounts' list.
@@ -40,6 +47,7 @@ paths:
               schema:
                 type: array
                 $ref: "./schemas/account.yml"
+        # Common responses
         '400':
           $ref: '#/components/responses/InvalidOperation'
         '401':
@@ -64,12 +72,13 @@ paths:
             application/json:
               schema:
                 $ref: "./schemas/account.yml"
+        '404':
+          $ref: '#/components/responses/NotFound'
+        # Common responses
         '400':
           $ref: '#/components/responses/InvalidOperation'
         '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFound'
+          $ref: '#/components/responses/UnauthorizedError'        
 components:
   securitySchemes:
     bearerAuth:

@@ -1,0 +1,10 @@
+in: query
+name: skip
+schema:
+  type: integer
+  format: int32
+  minimum: 0
+  default: 0
+required: false
+description: >
+  Number of items to skip.
