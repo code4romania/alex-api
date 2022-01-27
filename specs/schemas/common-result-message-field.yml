@@ -1,0 +1,13 @@
+type: object
+description: Field error message DTO.
+properties:
+  name:
+    type: string
+    description: DTO field name that contains the method.
+  level:
+    type: string
+    enum: [debug,info,warn,error]
+    description: Message error level.
+  message:
+    type: string
+    description: Message contents.

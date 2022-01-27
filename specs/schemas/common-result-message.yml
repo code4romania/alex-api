@@ -1,7 +1,14 @@
 type: object
+description: Error message DTO.
 properties:
   level:
     type: string
     enum: [debug,info,warn,error]
+    description: Message error level.
   message:
     type: string
+    description: Message contents.
+  fields:
+    type: array
+    items:
+      $ref: "./common-result-message-field.yml"    
