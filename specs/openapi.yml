@@ -11,10 +11,11 @@ servers:
 paths:
   /v1/hc:
     get:
-      tags:
-        - "health-check"
+      operationId: getHC
       summary: Health check endpoint.
       description: Health check endpoint. 
+      tags:
+        - "health-check"
       responses:
         '200':
           description: Response is OK on API running and reachable.
@@ -25,11 +26,12 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
   /v1/accounts:
     get:
+      operationId: getAccounts
+      summary: Gets accounts' list.
+      description: Gets accounts' list based on search filter.
       tags:
         - "accounts"
         - "list"
-      summary: Gets accounts' list.
-      description: Gets accounts' list based on search filter.
       parameters:
         - in: query
           name: q
@@ -57,11 +59,12 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
     post:
+      operationId: createAccount    
+      summary: Create account.
+      description: Creates an account.
       tags:
         - "accounts"
         - "create"
-      summary: Create account.
-      description: Creates an account.
       requestBody:
         description: New account data.
         required: true
@@ -79,10 +82,11 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
   /v1/accounts/{id}:
     get:
+      operationId: getAccount
+      summary: Gets account.
+      description: Gets single account based on ID.
       tags:
         - "accounts"
-      summary: Gets account.
-      description: Gets account based on ID.
       parameters:
         - in: "path"
           name: "id"
@@ -105,11 +109,12 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
     put:
+      operationId: updateAccount
+      summary: Update account.
+      description: Updates an account.
       tags:
         - "accounts"
         - "update"
-      summary: Update account.
-      description: Updates an account.
       parameters:
         - in: "path"
           name: "id"
