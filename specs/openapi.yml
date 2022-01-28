@@ -23,7 +23,8 @@ paths:
   /v1/accounts:
     get:
       tags:
-          - "accounts"
+        - "accounts"
+        - "list"
       summary: Gets accounts' list.
       description: Gets accounts' list based on search filter.
       parameters:
@@ -47,6 +48,27 @@ paths:
               schema:
                 type: array
                 $ref: "./schemas/account.yml"
+        # Common responses
+        '400':
+          $ref: '#/components/responses/InvalidOperation'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    post:
+      tags:
+        - "accounts"
+        - "create"
+      summary: Create account.
+      description: Creates an account.
+      requestBody:
+        description: New account data.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "./schemas/account.yml"
+      responses:
+        '201':
+          $ref: '#/components/responses/Created'
         # Common responses
         '400':
           $ref: '#/components/responses/InvalidOperation'
@@ -78,7 +100,35 @@ paths:
         '400':
           $ref: '#/components/responses/InvalidOperation'
         '401':
-          $ref: '#/components/responses/UnauthorizedError'        
+          $ref: '#/components/responses/UnauthorizedError'
+    put:
+      tags:
+        - "accounts"
+        - "update"
+      summary: Update account.
+      description: Updates an account.
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: string
+          required: true
+          description: ID parameter should represent the IBAN of the account.
+      requestBody:
+        description: Account data.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "./schemas/account-update.yml"
+      responses:
+        '204':
+          description: Updated
+        # Common responses
+        '400':
+          $ref: '#/components/responses/InvalidOperation'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
 components:
   securitySchemes:
     bearerAuth:
@@ -86,6 +136,14 @@ components:
       scheme: bearer
       bearerFormat: JWT
   responses:
+    Created:
+      description: Created.
+      content:
+        text/plain:
+          schema:
+            properties:
+              id:
+                type: string
     InvalidOperation:
       description: Bad request.
       content:
