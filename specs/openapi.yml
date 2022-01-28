@@ -88,12 +88,7 @@ paths:
       tags:
         - "accounts"
       parameters:
-        - in: "path"
-          name: "id"
-          schema:
-            type: string
-          required: true
-          description: ID parameter should represent the IBAN of the account.
+        - $ref: "./parameters/account-id-parameter.yml"
       responses:
         '200':
           description: Gets specified account.
@@ -116,12 +111,7 @@ paths:
         - "accounts"
         - "update"
       parameters:
-        - in: "path"
-          name: "id"
-          schema:
-            type: string
-          required: true
-          description: ID parameter should represent the IBAN of the account.
+        - $ref: "./parameters/account-id-parameter.yml"
       requestBody:
         description: Account data.
         required: true
@@ -132,6 +122,23 @@ paths:
       responses:
         '204':
           description: Updated
+        # Common responses
+        '400':
+          $ref: '#/components/responses/InvalidOperation'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    delete:
+      operationId: deleteAccount
+      summary: Delete account.
+      description: Deletes an account.
+      tags:
+        - "accounts"
+        - "delete"
+      parameters:
+        - $ref: "./parameters/account-id-parameter.yml"
+      responses:
+        '200':
+          description: OK
         # Common responses
         '400':
           $ref: '#/components/responses/InvalidOperation'
