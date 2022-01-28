@@ -4,7 +4,10 @@ info:
   version: 1.0.0
   description: ALEX API consumed by ALEX clients.
 servers:
-  - url: https://api.alex.test
+  - url: '{server}'
+    variables:
+      server:
+        default: https://api.alex.test
 paths:
   /v1/hc:
     get:
