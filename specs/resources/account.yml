@@ -1,0 +1,63 @@
+get:
+  operationId: getAccount
+  summary: Gets account.
+  description: Gets single account based on ID.
+  tags:
+    - "accounts"
+  parameters:
+    - $ref: "../parameters/account-id-parameter.yml"
+  responses:
+    '200':
+      description: Gets specified account.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/account.yml"
+    '404':
+      $ref: '../openapi.yml#/components/responses/NotFound'
+    # Common responses
+    '400':
+      $ref: '../openapi.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../openapi.yml#/components/responses/UnauthorizedError'
+put:
+  operationId: updateAccount
+  summary: Update account.
+  description: Updates an account.
+  tags:
+    - "accounts"
+    - "update"
+  parameters:
+    - $ref: "../parameters/account-id-parameter.yml"
+  requestBody:
+    description: Account data.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/account-update.yml"
+  responses:
+    '204':
+      description: Updated
+    # Common responses
+    '400':
+      $ref: '../openapi.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../openapi.yml#/components/responses/UnauthorizedError'
+delete:
+  operationId: deleteAccount
+  summary: Delete account.
+  description: Deletes an account.
+  tags:
+    - "accounts"
+    - "delete"
+  parameters:
+    - $ref: "../parameters/account-id-parameter.yml"
+  responses:
+    '200':
+      description: OK
+    # Common responses
+    '400':
+      $ref: '../openapi.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../openapi.yml#/components/responses/UnauthorizedError'

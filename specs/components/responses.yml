@@ -1,0 +1,26 @@
+Created:
+    description: Created.
+    content:
+      text/plain:
+        schema:
+          properties:
+            id:
+              type: string
+InvalidOperation:
+  description: Bad request.
+  content:
+    application/json:
+      schema:
+        $ref: "../schemas/common-result-message.yml"
+UnauthorizedError:
+  description: Access token is missing or invalid.
+  content:
+    application/json:
+      schema:
+        $ref: "../schemas/common-result-message.yml"
+NotFound:
+  description: Not found.
+  content:
+    application/json:
+      schema:
+        $ref: "../schemas/common-result-message.yml"

@@ -1,0 +1,11 @@
+in: query
+name: top
+schema:
+  type: integer
+  format: int32
+  minimum: 0
+  maximum: 100
+  default: 10
+required: false
+description: >
+  Number of items to return.

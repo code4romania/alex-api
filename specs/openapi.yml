@@ -1,0 +1,40 @@
+openapi: '3.0.2'
+info:
+  title: ALEX API
+  version: 1.0.0
+  description: ALEX API consumed by ALEX clients.
+servers:
+  - url: '{server}'
+    variables:
+      server:
+        default: https://api.alex.test
+paths:
+  /v1/hc:
+    get:
+      operationId: getHC
+      summary: Health check endpoint.
+      description: Health check endpoint. 
+      tags:
+        - "health-check"
+      responses:
+        '200':
+          description: Response is OK on API running and reachable.
+        # Common responses
+        '400':
+          $ref: '#/components/responses/InvalidOperation'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /v1/accounts:
+    $ref: './resources/accounts.yml'
+  /v1/accounts/{id}:
+    $ref: './resources/account.yml'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    $ref: './components/responses.yml'
+security:
+  - bearerAuth: []

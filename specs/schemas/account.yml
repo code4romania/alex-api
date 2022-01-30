@@ -1,0 +1,12 @@
+type: object
+required:
+  - iban
+properties:
+  alias:
+    type: string
+  iban:
+    type: string
+  shortIBAN:
+    type: string
+  isCash:
+    type: boolean

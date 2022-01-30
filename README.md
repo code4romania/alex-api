@@ -22,6 +22,10 @@ If you would like to suggest new functionality, open an Issue and mark it as a _
 
 ## Built With
 
+### OpenAPI specifications
+
+[OpenAPI specifications](specs/README.md)
+
 ### Programming languages
 
 ### Platforms
