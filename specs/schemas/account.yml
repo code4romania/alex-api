@@ -1,4 +1,5 @@
 type: object
+title: AccountDTO
 required:
   - iban
 properties:

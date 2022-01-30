@@ -1,2 +1,3 @@
 # Ignore OpenAPI YAML build folders
 **/_build/*
+**/openapitools.json

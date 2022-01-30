@@ -25,7 +25,8 @@ get:
         application/json:
           schema:
             type: array
-            $ref: "../schemas/account.yml"
+            items:
+              $ref: "../schemas/account.yml"
     # Common responses
     '400':
       $ref: '../openapi.yml#/components/responses/InvalidOperation'

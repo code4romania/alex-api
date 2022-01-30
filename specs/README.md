@@ -8,10 +8,57 @@ Use ```swagger-cli``` to build these specs.
 
 ```Bash
 npm install -g swagger-cli
-swagger-cli bundle openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
 ```
 
 Find an [OpenAPI build sample here](https://gist.github.com/andreifloroiu/bbbcadc3a8de4df43f93be4d7b85e175).
+
+## Generate code
+
+Using [this tool](https://openapi-generator.tech/).
+
+First, must have JRE on your machine:
+
+```Bash
+# On Ubuntu
+sudo apt install default-jre
+```
+
+Now, install ```npm``` wrapper package:
+
+```Bash
+npm install @openapitools/openapi-generator-cli -g
+```
+
+See generator list [here](https://openapi-generator.tech/docs/generators/).
+
+### Generate server stubs (ASP.NET Core)
+
+[ASP.NET Core server stubs here](https://openapi-generator.tech/docs/generators/aspnetcore/)
+and run (for library):
+
+```Bash
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+openapi-generator-cli generate -i _build/openapi.yml -o _build/aspnetcorestubs -g aspnetcore\
+    --additional-properties=aspnetCoreVersion=5.0,buildTarget=library,isLibrary=true,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
+```
+
+For program, run:
+
+```Bash
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+openapi-generator-cli generate -i _build/openapi.yml -o _build/aspnetcorestubs -g aspnetcore\
+    --additional-properties=aspnetCoreVersion=5.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
+```
+
+### Generate client code (axios)
+
+[Axios here](https://openapi-generator.tech/docs/generators/typescript-axios).
+
+```Bash
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+openapi-generator-cli generate -i _build/openapi.yml -o _build/ts-axios -g typescript-axios
+```
 
 ## Useful resources
 
