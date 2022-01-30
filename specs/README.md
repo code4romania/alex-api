@@ -8,7 +8,7 @@ Use ```swagger-cli``` to build these specs.
 
 ```Bash
 npm install -g swagger-cli
-swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml 
 ```
 
 Find an [OpenAPI build sample here](https://gist.github.com/andreifloroiu/bbbcadc3a8de4df43f93be4d7b85e175).
@@ -38,7 +38,7 @@ See generator list [here](https://openapi-generator.tech/docs/generators/).
 and run (for library):
 
 ```Bash
-swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml
 openapi-generator-cli generate -i _build/openapi.yml -o _build/aspnetcorestubs -g aspnetcore\
     --additional-properties=aspnetCoreVersion=5.0,buildTarget=library,isLibrary=true,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
@@ -46,7 +46,7 @@ openapi-generator-cli generate -i _build/openapi.yml -o _build/aspnetcorestubs -
 For program, run:
 
 ```Bash
-swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml
 openapi-generator-cli generate -i _build/openapi.yml -o _build/aspnetcorestubs -g aspnetcore\
     --additional-properties=aspnetCoreVersion=5.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
@@ -56,7 +56,7 @@ openapi-generator-cli generate -i _build/openapi.yml -o _build/aspnetcorestubs -
 [Axios here](https://openapi-generator.tech/docs/generators/typescript-axios).
 
 ```Bash
-swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml --dereference
+swagger-cli bundle specs/openapi.yml --outfile _build/openapi.yml --type yaml
 openapi-generator-cli generate -i _build/openapi.yml -o _build/ts-axios -g typescript-axios
 ```
 

@@ -5,14 +5,14 @@ get:
   tags:
     - "accounts"
   parameters:
-    - $ref: "../parameters/account-id-parameter.yml"
+    - $ref: '../openapi.yml#/components/parameters/AccountIdParameter'
   responses:
     '200':
       description: Gets specified account.
       content:
         application/json:
           schema:
-            $ref: "../schemas/account.yml"
+            $ref: '../openapi.yml#/components/schemas/AccountDTO'
     '404':
       $ref: '../openapi.yml#/components/responses/NotFound'
     # Common responses
@@ -28,14 +28,14 @@ put:
     - "accounts"
     - "update"
   parameters:
-    - $ref: "../parameters/account-id-parameter.yml"
+    - $ref: '../openapi.yml#/components/parameters/AccountIdParameter'
   requestBody:
     description: Account data.
     required: true
     content:
       application/json:
         schema:
-          $ref: "../schemas/account-update.yml"
+          $ref: '../openapi.yml#/components/schemas/AccountDTO'
   responses:
     '204':
       description: Updated
@@ -52,7 +52,7 @@ delete:
     - "accounts"
     - "delete"
   parameters:
-    - $ref: "../parameters/account-id-parameter.yml"
+    - $ref: "../openapi.yml#/components/parameters/AccountIdParameter"
   responses:
     '200':
       description: OK

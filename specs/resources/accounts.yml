@@ -15,9 +15,9 @@ get:
         Search parameter is used to filter accounts using IBAN, alias and short IBAN.
         If no account matches search criteria then an empty array is returned.
     # Common search query parameters.
-    - $ref: "../parameters/common-sort-parameter.yml"
-    - $ref: "../parameters/common-skip-parameter.yml"
-    - $ref: "../parameters/common-top-parameter.yml"
+    - $ref: '../openapi.yml#/components/parameters/CommonSortParameter'
+    - $ref: '../openapi.yml#/components/parameters/CommonSkipParameter'
+    - $ref: '../openapi.yml#/components/parameters/CommonTopParameter'
   responses:
     '200':
       description: Gets accounts' list.
@@ -26,7 +26,7 @@ get:
           schema:
             type: array
             items:
-              $ref: "../schemas/account.yml"
+              $ref: '../openapi.yml#/components/schemas/AccountDTO'
     # Common responses
     '400':
       $ref: '../openapi.yml#/components/responses/InvalidOperation'
@@ -45,7 +45,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/account.yml"
+          $ref: '../openapi.yml#/components/schemas/AccountDTO'
   responses:
     '201':
       $ref: '../openapi.yml#/components/responses/Created'
