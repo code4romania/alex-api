@@ -9,6 +9,6 @@ get:
       description: Response is OK on API running and reachable.
     # Common responses
     '400':
-      $ref: '../openapi.yml#/components/responses/InvalidOperation'
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
-      $ref: '../openapi.yml#/components/responses/UnauthorizedError'
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
