@@ -26,6 +26,6 @@ components:
   parameters:
     $ref: "./parameters/_index.yml"
   responses:
-    $ref: './components/responses.yml'
+    $ref: './components/_index.yml'
 security:
   - bearerAuth: []
