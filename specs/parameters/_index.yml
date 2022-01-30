@@ -1,0 +1,8 @@
+AccountIdParameter:
+  $ref: "./account-id-parameter.yml"
+CommonSkipParameter:
+  $ref: "./common-skip-parameter.yml"
+CommonSortParameter:
+  $ref: "./common-sort-parameter.yml"
+CommonTopParameter:
+  $ref: "./common-top-parameter.yml"

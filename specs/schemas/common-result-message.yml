@@ -1,4 +1,5 @@
 type: object
+title: ResponseDTO
 description: Error message DTO.
 properties:
   level:
@@ -11,4 +12,4 @@ properties:
   fields:
     type: array
     items:
-      $ref: "./common-result-message-field.yml"    
+      $ref: "./common-result-message-field.yml"

@@ -1,0 +1,8 @@
+AccountDTO:
+  $ref: "./account.yml"
+AccountUpdateDTO:
+  $ref: "./account-update.yml"
+ResultMessageDTO:
+  $ref: "./common-result-message.yml"
+ResultMessageFieldDTO:
+  $ref: "./common-result-message-field.yml"

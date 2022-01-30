@@ -15,9 +15,9 @@ get:
         Search parameter is used to filter accounts using IBAN, alias and short IBAN.
         If no account matches search criteria then an empty array is returned.
     # Common search query parameters.
-    - $ref: "../parameters/common-sort-parameter.yml"
-    - $ref: "../parameters/common-skip-parameter.yml"
-    - $ref: "../parameters/common-top-parameter.yml"
+    - $ref: '../alex-api.yml#/components/parameters/CommonSortParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonSkipParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonTopParameter'
   responses:
     '200':
       description: Gets accounts' list.
@@ -25,12 +25,13 @@ get:
         application/json:
           schema:
             type: array
-            $ref: "../schemas/account.yml"
+            items:
+              $ref: '../alex-api.yml#/components/schemas/AccountDTO'
     # Common responses
     '400':
-      $ref: '../openapi.yml#/components/responses/InvalidOperation'
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
-      $ref: '../openapi.yml#/components/responses/UnauthorizedError'
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
 post:
   operationId: createAccount    
   summary: Create account.
@@ -44,12 +45,12 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/account.yml"
+          $ref: '../alex-api.yml#/components/schemas/AccountDTO'
   responses:
     '201':
-      $ref: '../openapi.yml#/components/responses/Created'
+      $ref: '../alex-api.yml#/components/responses/Created'
     # Common responses
     '400':
-      $ref: '../openapi.yml#/components/responses/InvalidOperation'
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
-      $ref: '../openapi.yml#/components/responses/UnauthorizedError'
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'

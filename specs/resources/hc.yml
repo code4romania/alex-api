@@ -1,0 +1,14 @@
+get:
+  operationId: getHC
+  summary: Health check endpoint.
+  description: Health check endpoint. 
+  tags:
+    - "health-check"
+  responses:
+    '200':
+      description: Response is OK on API running and reachable.
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
