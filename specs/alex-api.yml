@@ -4,10 +4,10 @@ info:
   version: 1.0.0
   description: ALEX API consumed by ALEX clients.
 servers:
-  - url: '{server}'
+  - url: '{server}/api'
     variables:
       server:
-        default: https://api.alex.test
+        default: https://alex.test
 paths:
   /v1/hc:
     $ref: './resources/hc.yml'
@@ -26,6 +26,6 @@ components:
   parameters:
     $ref: "./parameters/_index.yml"
   responses:
-    $ref: './components/_index.yml'
+    $ref: './components/responses.yml'
 security:
   - bearerAuth: []
