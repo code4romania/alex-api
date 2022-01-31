@@ -27,6 +27,17 @@ get:
             type: array
             items:
               $ref: '../alex-api.yml#/components/schemas/AccountDTO'
+          examples:
+            sample:
+              value:
+                - alias: my-main-ccy
+                  IBAN: RO49AAAA1B31007593840000
+                  shortIBAN: '49-9384'
+                  isCash: false
+                - alias: my-other-ccy
+                  IBAN: RO51AAAA1B31007593840000
+                  shortIBAN: '51-9384'
+                  isCash: false
     # Common responses
     '400':
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'

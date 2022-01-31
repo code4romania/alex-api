@@ -13,6 +13,19 @@ get:
         application/json:
           schema:
             $ref: '../alex-api.yml#/components/schemas/AccountDTO'
+          examples:
+            sample:
+              value:
+                alias: my-main-ccy
+                IBAN: RO49AAAA1B31007593840000
+                shortIBAN: '49-9384'
+                isCash: false
+            sample-other:
+              value:
+                alias: my-main-ccy
+                IBAN: RO51AAAA1B31007593840000
+                shortIBAN: '51-9384'
+                isCash: false
     '404':
       $ref: '../alex-api.yml#/components/responses/NotFound'
     # Common responses

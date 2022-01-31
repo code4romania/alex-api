@@ -7,7 +7,22 @@ get:
   responses:
     '200':
       description: Response is OK on API running and reachable.
-    # Common responses
+      content:
+        application/json:
+          schema:
+            $ref: "../alex-api.yml#/components/schemas/ResultMessageDTO"
+          examples:
+            sample-info:
+              value:
+                level: info
+                message: HEALTHY
+                fields: []
+            sample-warn:
+              value:
+                level: warn
+                message: HEALTHY
+                fields: []
+      # Common responses
     '400':
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':

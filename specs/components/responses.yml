@@ -1,26 +1,54 @@
 Created:
-    description: Created.
-    content:
-      text/plain:
-        schema:
-          properties:
-            id:
-              type: string
+  description: Created.
+  content:
+    text/plain:
+      schema:
+        properties:
+          id:
+            type: string
+      examples:
+        account-created:
+          value:
+            id: RO49AAAA1B31007593840000
 InvalidOperation:
   description: Bad request.
   content:
     application/json:
       schema:
         $ref: "../alex-api.yml#/components/schemas/ResultMessageDTO"
+      examples:
+        account-invalid:
+          value:
+            level: error
+            message: Multiple validation errors!
+            fields:
+              - name: IBAN
+                level: error
+                message: IBAN is not valid format!
+              - name: Alias
+                level: warning
+                message: Alias is empty!
 UnauthorizedError:
   description: Access token is missing or invalid.
   content:
     application/json:
       schema:
         $ref: "../alex-api.yml#/components/schemas/ResultMessageDTO"
+      examples:
+        unauthorized:
+          value:
+            level: error
+            message: Unauthorized to perform this action!
+            fields: []
 NotFound:
   description: Not found.
   content:
     application/json:
       schema:
         $ref: "../alex-api.yml#/components/schemas/ResultMessageDTO"
+      example:
+        not-found:
+          value:
+            level: error
+            message: Item not found!
+            fields: []
