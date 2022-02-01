@@ -1,3 +1,4 @@
 # Ignore OpenAPI YAML build folders
 **/_build/*
+**/alex-api-bundle.yml
 **/openapitools.json
