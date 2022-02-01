@@ -8,7 +8,7 @@ Use ```swagger-cli``` to build these specs.
 
 ```Bash
 npm install -g swagger-cli
-swagger-cli bundle specs/alex-api.yml --outfile _build/alex-api.yml --type yaml 
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml 
 ```
 
 Find an [OpenAPI build sample here](https://gist.github.com/andreifloroiu/bbbcadc3a8de4df43f93be4d7b85e175).
@@ -38,16 +38,16 @@ See generator list [here](https://openapi-generator.tech/docs/generators/).
 and run (for library):
 
 ```Bash
-swagger-cli bundle specs/alex-api.yml --outfile _build/alex-api.yml --type yaml
-openapi-generator-cli generate -i _build/alex-api.yml -o _build/aspnetcorestubs -g aspnetcore\
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
+openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcorestubs -g aspnetcore\
     --additional-properties=aspnetCoreVersion=5.0,buildTarget=library,isLibrary=true,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
 
 For program, run:
 
 ```Bash
-swagger-cli bundle specs/alex-api.yml --outfile _build/alex-api.yml --type yaml
-openapi-generator-cli generate -i _build/alex-api.yml -o _build/aspnetcorestubs -g aspnetcore\
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
+openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcorestubs -g aspnetcore\
     --additional-properties=aspnetCoreVersion=5.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
 
@@ -56,8 +56,8 @@ openapi-generator-cli generate -i _build/alex-api.yml -o _build/aspnetcorestubs 
 [Axios here](https://openapi-generator.tech/docs/generators/typescript-axios).
 
 ```Bash
-swagger-cli bundle specs/alex-api.yml --outfile _build/alex-api.yml --type yaml
-openapi-generator-cli generate -i _build/alex-api.yml -o _build/ts-axios -g typescript-axios
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
+openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/ts-axios -g typescript-axios
 ```
 
 ## Useful resources
