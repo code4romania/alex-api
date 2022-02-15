@@ -5,10 +5,14 @@ get:
   tags:
     - "accounts"
   parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
   responses:
     '200':
       description: Gets specified account.
+      headers:
+        Culture:
+          $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:
@@ -41,6 +45,7 @@ put:
     - "accounts"
     - "update"
   parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
   requestBody:
     description: Account data.

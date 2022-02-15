@@ -5,10 +5,14 @@ get:
   tags:
     - "patrons"
   parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
   responses:
     '200':
       description: Gets specified patron.
+      headers:
+        Culture:
+          $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:
@@ -53,6 +57,7 @@ put:
     - "pantrons"
     - "update"
   parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
   requestBody:
     description: Patron data.

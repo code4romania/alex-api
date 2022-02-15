@@ -1,5 +1,8 @@
 Created:
   description: Created.
+  headers:
+    Culture:
+      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     text/plain:
       schema:
@@ -12,6 +15,9 @@ Created:
             id: RO49AAAA1B31007593840000
 InvalidOperation:
   description: Bad request.
+  headers:
+    Culture:
+      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     application/json:
       schema:
@@ -30,6 +36,9 @@ InvalidOperation:
                 message: Alias is empty!
 UnauthorizedError:
   description: Access token is missing or invalid.
+  headers:
+    Culture:
+      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     application/json:
       schema:
@@ -42,6 +51,9 @@ UnauthorizedError:
             fields: []
 NotFound:
   description: Not found.
+  headers:
+    Culture:
+      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     application/json:
       schema:
