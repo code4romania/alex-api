@@ -2,6 +2,10 @@ AccountDTO:
   $ref: "./account.yml"
 AccountUpdateDTO:
   $ref: "./account-update.yml"
+PatronDTO:
+  $ref: "./patron.yml"
+PatronUpdateDTO:
+  $ref: "./patron-update.yml"
 ResultMessageDTO:
   $ref: "./common-result-message.yml"
 ResultMessageFieldDTO:

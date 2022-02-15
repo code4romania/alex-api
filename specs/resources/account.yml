@@ -14,13 +14,13 @@ get:
           schema:
             $ref: '../alex-api.yml#/components/schemas/AccountDTO'
           examples:
-            sample:
+            sample-01:
               value:
                 alias: my-main-ccy
                 IBAN: RO49AAAA1B31007593840000
                 shortIBAN: '49-9384'
                 isCash: false
-            sample-other:
+            sample-02:
               value:
                 alias: my-main-ccy
                 IBAN: RO51AAAA1B31007593840000
@@ -48,7 +48,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/AccountDTO'
+          $ref: '../alex-api.yml#/components/schemas/AccountUpdateDTO'
   responses:
     '204':
       description: Updated

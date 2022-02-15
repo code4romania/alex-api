@@ -1,3 +1,5 @@
+CommonIdParameter:
+  $ref: "./common-id-parameter.yml"
 AccountIdParameter:
   $ref: "./account-id-parameter.yml"
 CommonSkipParameter:

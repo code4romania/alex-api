@@ -1,0 +1,88 @@
+get:
+  operationId: getPatron
+  summary: Gets Patron.
+  description: Gets single patron based on ID.
+  tags:
+    - "patrons"
+  parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+  responses:
+    '200':
+      description: Gets specified patron.
+      content:
+        application/json:
+          schema:
+            $ref: '../alex-api.yml#/components/schemas/PatronDTO'
+          examples:
+            sample-01:
+              value:
+                id: ing-ro
+                name: ING Romania
+                alias: ING RO
+                description: Lorem ipsum something about ING RO.
+                legalRepresentative:
+                  firstName: Someone
+                  lastName: Legal
+                  phone: "0712 345 567"
+                  email: "someone@ing.com"
+                  address: "Bdul Nicolae Balcescu 30, Bucuresti"
+            sample-02:
+              value:
+                id: ing-nl
+                name: ING Netherlans
+                alias: ING NL
+                description: Lorem ipsum something about ING NL.
+                legalRepresentative:
+                  firstName: Someone Other
+                  lastName: Legal Stuff
+                  phone: "0712 345 567"
+                  email: "someone@ing.nl"
+                  address: "Amsterdam"
+    '404':
+      $ref: '../alex-api.yml#/components/responses/NotFound'
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+put:
+  operationId: updatePatron
+  summary: Update patron.
+  description: Updates an existing patron.
+  tags:
+    - "pantrons"
+    - "update"
+  parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+  requestBody:
+    description: Patron data.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../alex-api.yml#/components/schemas/PatronUpdateDTO'
+  responses:
+    '204':
+      description: Updated
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+delete:
+  operationId: deletePatron
+  summary: Delete patron.
+  description: Deletes a patron.
+  tags:
+    - "pantrons"
+    - "delete"
+  parameters:
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
+  responses:
+    '200':
+      description: OK
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'

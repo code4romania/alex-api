@@ -1,0 +1,35 @@
+type: object
+title: PatronDTO
+required:
+  - id
+  - name
+  - alias
+  - legalRepresentative
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  alias:
+    type: string  
+  description:
+    type: string
+  legalRepresentative:
+    type: object
+    required:
+      - firstName
+      - lastName
+      - email
+      - phone
+      - address
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      phone:
+        type: string
+      email:
+        type: string
+      address:
+        type: string
