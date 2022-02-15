@@ -10,3 +10,5 @@ CommonSortParameter:
   $ref: "./common-sort-parameter.yml"
 CommonTopParameter:
   $ref: "./common-top-parameter.yml"
+ExportFormatParameter:
+  $ref: "./export-format-parameter.yml"
