@@ -56,3 +56,27 @@ get:
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+post:
+  operationId: createPatron   
+  summary: Create patron.
+  description: Creates a new patron.
+  tags:
+    - "patrons"
+    - "create"
+  parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
+  requestBody:
+    description: New patron data.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../alex-api.yml#/components/schemas/PatronUpdateDTO'
+  responses:
+    '201':
+      $ref: '../alex-api.yml#/components/responses/Created'
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'

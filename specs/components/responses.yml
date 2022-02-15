@@ -13,6 +13,9 @@ Created:
         account-created:
           value:
             id: RO49AAAA1B31007593840000
+        patron-created:
+          value:
+            id: ing-ro
 InvalidOperation:
   description: Bad request.
   headers:
