@@ -1,5 +1,5 @@
 type: object
-title: PatronUpdateDTO
+title: SponsorUpdateDTO
 required:
   - name
   - alias

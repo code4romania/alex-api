@@ -4,10 +4,10 @@ AccountUpdateDTO:
   $ref: "./account-update.yml"
 Culture:
   $ref: "./culture.yml"
-PatronDTO:
-  $ref: "./patron.yml"
-PatronUpdateDTO:
-  $ref: "./patron-update.yml"
+SponsorDTO:
+  $ref: "./sponsor.yml"
+SponsorUpdateDTO:
+  $ref: "./sponsor-update.yml"
 ResultMessageDTO:
   $ref: "./common-result-message.yml"
 ResultMessageFieldDTO:

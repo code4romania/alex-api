@@ -1,5 +1,5 @@
 type: object
-title: PatronDTO
+title: SponsorDTO
 required:
   - id
   - name

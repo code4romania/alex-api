@@ -1,22 +1,22 @@
 get:
-  operationId: getPatron
-  summary: Gets Patron.
-  description: Gets single patron based on ID.
+  operationId: getSponsor
+  summary: Gets sponsor.
+  description: Gets single sponsor based on ID.
   tags:
-    - "patrons"
+    - "sponsors"
   parameters:
     - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
   responses:
     '200':
-      description: Gets specified patron.
+      description: Gets specified sponsor.
       headers:
         Culture:
           $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:
-            $ref: '../alex-api.yml#/components/schemas/PatronDTO'
+            $ref: '../alex-api.yml#/components/schemas/SponsorDTO'
           examples:
             sample-01:
               value:
@@ -52,9 +52,9 @@ get:
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
 put:
-  operationId: updatePatron
-  summary: Update patron.
-  description: Updates an existing patron.
+  operationId: updateSponsor
+  summary: Update sponsor.
+  description: Updates an existing sponsor.
   tags:
     - "pantrons"
     - "update"
@@ -62,12 +62,12 @@ put:
     - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
   requestBody:
-    description: Patron data.
+    description: Sponsor data.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/PatronUpdateDTO'
+          $ref: '../alex-api.yml#/components/schemas/SponsorUpdateDTO'
   responses:
     '204':
       description: Updated
@@ -77,9 +77,9 @@ put:
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
 delete:
-  operationId: deletePatron
-  summary: Delete patron.
-  description: Deletes a patron.
+  operationId: deleteSponsor
+  summary: Delete sponsor.
+  description: Deletes a sponsor.
   tags:
     - "pantrons"
     - "delete"

@@ -15,10 +15,10 @@ paths:
     $ref: './resources/accounts.yml'
   /v1/accounts/{id}:
     $ref: './resources/account.yml'
-  /v1/patrons:
-    $ref: './resources/patrons.yml'
-  /v1/patrons/{id}:
-    $ref: './resources/patron.yml'
+  /v1/sponsors:
+    $ref: './resources/sponsors.yml'
+  /v1/sponsors/{id}:
+    $ref: './resources/sponsor.yml'
 components:
   schemas:
     $ref: "./schemas/_index.yml"
