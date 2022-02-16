@@ -37,10 +37,16 @@ get:
                 - alias: my-main-ccy
                   IBAN: RO49AAAA1B31007593840000
                   shortIBAN: '49-9384'
+                  swift: SOME4SWIFT
+                  bank: The AAAA Bank
+                  currency: RON
                   isCash: false
                 - alias: my-other-ccy
                   IBAN: RO51AAAA1B31007593840000
                   shortIBAN: '51-9384'
+                  swift: SOME4SWIFT
+                  bank: The AAAA Bank
+                  currency: EUR
                   isCash: false
     # Common responses
     '400':

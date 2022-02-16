@@ -9,5 +9,11 @@ properties:
     type: string
   shortIBAN:
     type: string
+  swift:
+    type: string
+  bank:
+    type: string
+  currency:
+    type: string
   isCash:
     type: boolean
