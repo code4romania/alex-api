@@ -1,0 +1,90 @@
+get:
+  operationId: getSponsors
+  summary: Gets sponsors' list.
+  description: Gets sponsors' list based on search filter.
+  tags:
+    - "sponsors"
+    - "list"
+  parameters:
+    - in: query
+      name: q
+      schema:
+        type: string
+      required: false
+      description: >
+        Search parameter is used to filter sponsors using different containing fields.
+        If no account matches search criteria then an empty array is returned.
+    # Common search query parameters.
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonSortParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonSkipParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonTopParameter'
+    # Export parameter.
+    #- $ref: '../alex-api.yml#/components/parameters/ExportFormatParameter'
+  responses:
+    '200':
+      description: Gets sponsors' list.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../alex-api.yml#/components/schemas/SponsorDTO'
+          examples:
+            sample:
+              value:
+                - id: ing-ro
+                  name: ING Romania
+                  alias: ING RO
+                  fiscalId: RO19
+                  description: Lorem ipsum something about ING RO.
+                  legalRepresentative:
+                    firstName: Someone
+                    lastName: Legal
+                    phone: "0712 345 567"
+                    email: "someone@ing.com"
+                    address: "Bdul Nicolae Balcescu 30, Bucuresti"  
+                - id: ing-nl
+                  name: ING Netherlans
+                  alias: ING NL
+                  fiscalId: null
+                  description: Lorem ipsum something about ING NL.
+                  legalRepresentative:
+                    firstName: Someone Other
+                    lastName: Legal Stuff
+                    phone: "0712 345 567"
+                    email: "someone@ing.nl"
+                    address: "Amsterdam"
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+          schema:
+            type: string
+            format: binary
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+post:
+  operationId: createSponsor
+  summary: Create sponsor.
+  description: Creates a new sponsor.
+  tags:
+    - "sponsors"
+    - "create"
+  parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
+  requestBody:
+    description: New sponsor data.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../alex-api.yml#/components/schemas/SponsorUpdateDTO'
+  responses:
+    '201':
+      $ref: '../alex-api.yml#/components/responses/Created'
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'

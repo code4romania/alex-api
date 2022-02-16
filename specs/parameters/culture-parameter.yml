@@ -1,0 +1,8 @@
+in: header
+name: "culture"
+schema:
+  type: string
+  enum: [ro-RO, en-US, en-GB]
+  default: ro-RO
+required: false
+description: Culture parameter.

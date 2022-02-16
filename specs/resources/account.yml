@@ -5,22 +5,26 @@ get:
   tags:
     - "accounts"
   parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
   responses:
     '200':
       description: Gets specified account.
+      headers:
+        Culture:
+          $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:
             $ref: '../alex-api.yml#/components/schemas/AccountDTO'
           examples:
-            sample:
+            sample-01:
               value:
                 alias: my-main-ccy
                 IBAN: RO49AAAA1B31007593840000
                 shortIBAN: '49-9384'
                 isCash: false
-            sample-other:
+            sample-02:
               value:
                 alias: my-main-ccy
                 IBAN: RO51AAAA1B31007593840000
@@ -41,6 +45,7 @@ put:
     - "accounts"
     - "update"
   parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
   requestBody:
     description: Account data.
@@ -48,7 +53,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/AccountDTO'
+          $ref: '../alex-api.yml#/components/schemas/AccountUpdateDTO'
   responses:
     '204':
       description: Updated

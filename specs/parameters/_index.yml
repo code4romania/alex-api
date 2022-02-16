@@ -1,3 +1,7 @@
+CommonIdParameter:
+  $ref: "./common-id-parameter.yml"
+CultureParameter:
+  $ref: "./culture-parameter.yml"
 AccountIdParameter:
   $ref: "./account-id-parameter.yml"
 CommonSkipParameter:
@@ -8,3 +12,5 @@ CommonTopParameter:
   $ref: "./common-top-parameter.yml"
 IdParameter:
   $ref: "./id-parameter.yml"
+ExportFormatParameter:
+  $ref: "./export-format-parameter.yml"

@@ -1,0 +1,95 @@
+get:
+  operationId: getSponsor
+  summary: Gets sponsor.
+  description: Gets single sponsor based on ID.
+  tags:
+    - "sponsors"
+  parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+  responses:
+    '200':
+      description: Gets specified sponsor.
+      headers:
+        Culture:
+          $ref: '../alex-api.yml#/components/schemas/Culture'
+      content:
+        application/json:
+          schema:
+            $ref: '../alex-api.yml#/components/schemas/SponsorDTO'
+          examples:
+            sample-01:
+              value:
+                id: ing-ro
+                name: ING Romania
+                alias: ING RO
+                fiscalId: RO19
+                description: Lorem ipsum something about ING RO.
+                legalRepresentative:
+                  firstName: Someone
+                  lastName: Legal
+                  phone: "0712 345 567"
+                  email: "someone@ing.com"
+                  address: "Bdul Nicolae Balcescu 30, Bucuresti"
+            sample-02:
+              value:
+                id: ing-nl
+                name: ING Netherlans
+                alias: ING NL
+                fiscalId: null
+                description: Lorem ipsum something about ING NL.
+                legalRepresentative:
+                  firstName: Someone Other
+                  lastName: Legal Stuff
+                  phone: "0712 345 567"
+                  email: "someone@ing.nl"
+                  address: "Amsterdam"
+    '404':
+      $ref: '../alex-api.yml#/components/responses/NotFound'
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+put:
+  operationId: updateSponsor
+  summary: Update sponsor.
+  description: Updates an existing sponsor.
+  tags:
+    - "pantrons"
+    - "update"
+  parameters:
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+  requestBody:
+    description: Sponsor data.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../alex-api.yml#/components/schemas/SponsorUpdateDTO'
+  responses:
+    '204':
+      description: Updated
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+delete:
+  operationId: deleteSponsor
+  summary: Delete sponsor.
+  description: Deletes a sponsor.
+  tags:
+    - "pantrons"
+    - "delete"
+  parameters:
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
+  responses:
+    '200':
+      description: OK
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'

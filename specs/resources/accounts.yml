@@ -15,12 +15,16 @@ get:
         Search parameter is used to filter accounts using IBAN, alias and short IBAN.
         If no account matches search criteria then an empty array is returned.
     # Common search query parameters.
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonSortParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonSkipParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonTopParameter'
   responses:
     '200':
       description: Gets accounts' list.
+      headers:
+        Culture:
+          $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:
@@ -56,6 +60,7 @@ post:
       schema:
         type: string
         required: false
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
   requestBody:
     description: New account data.
     required: true
