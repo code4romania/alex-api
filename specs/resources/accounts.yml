@@ -50,6 +50,12 @@ post:
   tags:
     - "accounts"
     - "create"
+  parameters:
+    - in: header
+      name: X-CSO-ID
+      schema:
+        type: string
+        required: false
   requestBody:
     description: New account data.
     required: true

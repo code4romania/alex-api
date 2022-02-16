@@ -6,3 +6,5 @@ ResultMessageDTO:
   $ref: "./common-result-message.yml"
 ResultMessageFieldDTO:
   $ref: "./common-result-message-field.yml"
+CsoDTO:
+  $ref: "./cso.yml"

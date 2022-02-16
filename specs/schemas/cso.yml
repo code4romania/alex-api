@@ -1,0 +1,19 @@
+type: object
+title: CsoDTO
+required:
+  - name
+properties:
+  name:
+    type: string
+  fiscalIdentificationNumber:
+    type: string
+  registryNumber:
+    type: string
+  legalRepresentativeName:
+    type: string
+  legalRepresentativePhone:
+    type: telephone
+  legalRepresentativeEmail:
+    type: email
+  legalRepresentativeAddress:
+    type: string

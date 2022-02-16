@@ -48,7 +48,7 @@ For program, run:
 ```Bash
 swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
 openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcorestubs -g aspnetcore\
-    --additional-properties=aspnetCoreVersion=5.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
+    --additional-properties=aspnetCoreVersion=6.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
 
 ### Generate client code (axios)
