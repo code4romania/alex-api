@@ -18,13 +18,22 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-dotnettools.csharp"
+		"ms-dotnettools.csharp",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-wsl",
+        "ms-azuretools.vscode-docker",
+        "yzhang.markdown-all-in-one",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "bierner.markdown-mermaid",
+        "42crunch.vscode-openapi",
+        "vscode-icons-team.vscode-icons"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],
 
-	"postStartCommand": "swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml && open-api-mocker -s specs/alex-api-bundle.yml -w",
+	//"postStartCommand": "swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml && open-api-mocker -s specs/alex-api-bundle.yml -w",
 
 	"forwardPorts": [5000, 80, 443],
 

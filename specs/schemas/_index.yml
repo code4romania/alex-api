@@ -2,6 +2,12 @@ AccountDTO:
   $ref: "./account.yml"
 AccountUpdateDTO:
   $ref: "./account-update.yml"
+Culture:
+  $ref: "./culture.yml"
+SponsorDTO:
+  $ref: "./sponsor.yml"
+SponsorUpdateDTO:
+  $ref: "./sponsor-update.yml"
 ResultMessageDTO:
   $ref: "./common-result-message.yml"
 ResultMessageFieldDTO:
