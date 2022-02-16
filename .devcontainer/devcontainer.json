@@ -18,7 +18,13 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-dotnettools.csharp"
+		"ms-dotnettools.csharp",
+        "yzhang.markdown-all-in-one",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "bierner.markdown-mermaid",
+        "42crunch.vscode-openapi",
+        "vscode-icons-team.vscode-icons"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
