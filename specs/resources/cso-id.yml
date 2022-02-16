@@ -5,7 +5,7 @@ get:
   description: Gets a CSO based on Id
   tags:
     - cso
-    - get
+    - create
   parameters:
     - $ref: '../alex-api.yml#/components/parameters/IdParameter'
   responses:
@@ -18,13 +18,13 @@ get:
           examples:
             sample:
               value:
-                name: Code4Romania
-                fiscalIdentificationNumber: 123456
-                registryNumber: g64bncd73
-                legalRepresentativeName: Bogdan Ivanel
-                legalRepresentativePhone: 0723456789
-                legalRepresentativeEmail: contact@code4.ro
-                legalRepresentativeAddress: str. Alba Iulia...
+                name: 'Code4Romania'
+                fiscalIdentificationNumber: '123456'
+                registryNumber: 'g64bncd73'
+                legalRepresentativeName: 'Bogdan Ivanel'
+                legalRepresentativePhone: '0723456789'
+                legalRepresentativeEmail: 'contact@code4.ro'
+                legalRepresentativeAddress: 'str. Alba Iulia...'
             
     '404':
       $ref: '../alex-api.yml#/components/responses/NotFound'
