@@ -23,6 +23,7 @@ get:
                 id: ing-ro
                 name: ING Romania
                 alias: ING RO
+                fiscalId: RO19
                 description: Lorem ipsum something about ING RO.
                 legalRepresentative:
                   firstName: Someone
@@ -35,6 +36,7 @@ get:
                 id: ing-nl
                 name: ING Netherlans
                 alias: ING NL
+                fiscalId: null
                 description: Lorem ipsum something about ING NL.
                 legalRepresentative:
                   firstName: Someone Other

@@ -11,7 +11,9 @@ properties:
   name:
     type: string
   alias:
-    type: string  
+    type: string
+  fiscalId:
+    type: string
   description:
     type: string
   status:
