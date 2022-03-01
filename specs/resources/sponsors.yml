@@ -22,7 +22,7 @@ get:
     - $ref: '../alex-api.yml#/components/parameters/CommonTopParameter'
     # Common general parameters
     - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'     
+    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'     
   responses:
     '200':
       description: Gets sponsors' list.
@@ -76,7 +76,7 @@ post:
   parameters:
     # Common general parameters
     - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'  
+    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'  
   requestBody:
     description: New sponsor data.
     required: true
