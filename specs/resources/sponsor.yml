@@ -5,8 +5,10 @@ get:
   tags:
     - "sponsors"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+    # Common general parameters
+    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter' 
   responses:
     '200':
       description: Gets specified sponsor.
@@ -59,8 +61,10 @@ put:
     - "pantrons"
     - "update"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+    # Common general parameters
+    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter' 
   requestBody:
     description: Sponsor data.
     required: true

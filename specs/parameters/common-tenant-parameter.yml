@@ -1,0 +1,7 @@
+in: header
+name: "X-Tenant-ID"
+schema:
+  type: string
+  default: default
+required: true
+description: Culture parameter.

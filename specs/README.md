@@ -51,7 +51,7 @@ openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcore
     --additional-properties=aspnetCoreVersion=5.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
 
-### Generate client code (axios)
+### Generate client code - axios
 
 [Axios here](https://openapi-generator.tech/docs/generators/typescript-axios).
 
@@ -59,6 +59,28 @@ openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcore
 swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
 openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/ts-axios -g typescript-axios
 ```
+
+### Generate client code - Postman
+
+Found these steps [here](https://github.com/postmanlabs/postman-app-support/issues/8663) and adapted them bellow.
+
+1. Create a new workspace
+1. (in Postman) Go to 'APIs'
+1. Click on 'New API'
+1. Enter API details: Name and Version
+1. Choose Schema type: OpenAPI 3.0
+1. Choose Schema format: YAML
+1. Import API schema (can't be in _devcontainter_ unless you do some ```docker cp <container-id>:/workspaces/alex-api/specs/alex-api-bundle.yml /mnt/d/tmp/alex-api-bundle.yml``` magic) - find container ID with ```docker ps```
+1. Go to newly imported API
+1. Click on 'Generate Collection'
+1. Name your collection
+1. Choose 'Test the API'
+1. Click on 'Generate Collection'
+1. Switch to Collections
+1. Choose newly generated collection
+1. Choose 'Edit collection'
+1. Check 'Authorization' type configured
+1. Instead of 'API Key' I can see 'No Auth'
 
 ## Useful resources
 

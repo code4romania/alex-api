@@ -5,8 +5,10 @@ get:
   tags:
     - "accounts"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
+    # Common general parameters
+    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter' 
   responses:
     '200':
       description: Gets specified account.
@@ -51,8 +53,10 @@ put:
     - "accounts"
     - "update"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
     - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
+    # Common general parameters
+    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CultureParameter'    
   requestBody:
     description: Account data.
     required: true
