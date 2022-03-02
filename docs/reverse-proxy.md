@@ -8,8 +8,10 @@ flowchart LR
     reverse_proxy -- "HTTP - path /" --> alex_client(("ALEX-CLIENT SPA (React + NextJS)"))
     alex_client -. calls .-> alex_api
     reverse_proxy -- "HTTP - path /api" --> alex_api(("ALEX-API (.NET Core)"))
-    alex_api -. "verifies JWT against & redirects" .-> idp
-    alex_api == one connection string per tenant ==> db[(database)]
+    alex_api -. "verifies JWT against IDP" .-> idp
+    alex_api -- "tenant 1 connection string" --> db[(database)]
+    alex_api -- "tenant 2 connection string" --> db[(database)]
+    alex_api -- "..." --> db[(database)]
     idp -- single connection string --> db[("data store (Postgre???)")]   
     reverse_proxy -- "HTTP - path /idp" --> idp(("IDP (Keycloak)"))    
 ```
