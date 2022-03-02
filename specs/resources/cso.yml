@@ -35,3 +35,34 @@ get:
           $ref: '../alex-api.yml#/components/responses/InvalidOperation'
         '401':
           $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+post:
+  operationId: createCSO
+  summary: Creates a new CSO
+  description: Creates a new CSO entity
+  tags:
+    - "cso"
+  requestBody:
+    description: New CSO data.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../alex-api.yml#/components/schemas/CsoDTO'
+  responses:
+    '201':
+      description: Created.
+      content:
+        text/plain:
+          schema:
+            properties:
+              id:
+                type: string
+          examples:
+            cso-created:
+              value:
+                id: tenant-id
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
