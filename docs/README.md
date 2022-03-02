@@ -11,3 +11,7 @@ Enjoy!
 ## ER Diagrams
 
 [HERE](er.diagram.md).
+
+## Architecture Diagram
+
+[HERE](reverse-proxy.md).
