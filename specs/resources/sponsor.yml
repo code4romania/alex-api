@@ -53,6 +53,8 @@ get:
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 put:
   operationId: updateSponsor
   summary: Update sponsor.
@@ -80,6 +82,8 @@ put:
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 delete:
   operationId: deleteSponsor
   summary: Delete sponsor.
@@ -97,3 +101,5 @@ delete:
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'

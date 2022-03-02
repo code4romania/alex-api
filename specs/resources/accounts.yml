@@ -55,6 +55,8 @@ get:
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 post:
   operationId: createAccount    
   summary: Create account.
@@ -81,3 +83,5 @@ post:
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'

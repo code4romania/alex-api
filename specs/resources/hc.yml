@@ -22,8 +22,3 @@ get:
                 level: warn
                 message: HEALTHY
                 fields: []
-      # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
