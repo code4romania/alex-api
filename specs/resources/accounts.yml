@@ -61,6 +61,11 @@ post:
     - "accounts"
     - "create"
   parameters:
+    - in: header
+      name: X-CSO-ID
+      schema:
+        type: string
+        required: false
     - $ref: '../alex-api.yml#/components/parameters/CultureParameter'
   requestBody:
     description: New account data.

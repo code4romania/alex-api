@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "openapi:v3": "file:///workspaces/alex.api/specs/resources/cso.yml"
+    }
+}
