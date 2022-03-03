@@ -13,7 +13,7 @@ flowchart LR
     alex_api -- "tenant 2 connection string" --> db[(database)]
     alex_api -- "..." --> db[(database)]
     idp -- single connection string --> db[("data store (Postgre???)")]   
-    reverse_proxy -- "HTTP - path /idp" --> idp(("IDP (Keycloak)"))    
+    reverse_proxy -- "HTTP - path /auth" --> idp(("IDP (Keycloak)"))    
 ```
 
 - _nginx_ 
@@ -34,7 +34,7 @@ flowchart LR
       - separates based on ```X-Tenant-ID``` HTTP header
 - _IDP_ - _Keycloak_
   - should generate JWT token
-    - HTTP server path: ```/idp```
+    - HTTP server path: ```/auth``` (default for _Keycloak_)
   - offers UI for user management, realms, different parameter configuration
   - uses same DB as _ALEX-API_
 - _DB_ - data store???
