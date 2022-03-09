@@ -9,9 +9,14 @@ services:
         NODE_VERSION: 'lts/*'
     volumes:
       - ..:/workspace:cached
-    network_mode: service:alex-db
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
+  alex-api-mock:
+    build:
+      context: ../specs
+      dockerfile: Dockerfile
+    volumes:
+      - ../specs:/specs
   alex-nginx:
     image: nginx:latest
     container_name: alex-nginx
@@ -21,7 +26,10 @@ services:
       - ./certs:/etc/nginx/certs
     ports:
       - 80:80
-      - 443:443 
+      - 443:443
+    depends_on:
+      - alex-idp
+      - alex-api-mock
   alex-db:
     image: postgres
     container_name: alex-db
