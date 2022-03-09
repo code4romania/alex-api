@@ -4,6 +4,8 @@ AccountUpdateDTO:
   $ref: "./account-update.yml"
 Culture:
   $ref: "./culture.yml"
+CsoDTO:
+  $ref: "./cso.yml"
 SponsorDTO:
   $ref: "./sponsor.yml"
 SponsorUpdateDTO:

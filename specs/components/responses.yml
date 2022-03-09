@@ -38,7 +38,7 @@ InvalidOperation:
                 level: warning
                 message: Alias is empty!
 UnauthorizedError:
-  description: Access token is missing or invalid.
+  description: Access token is missing or invalid - HTTP 401 Unauthorized (not authenticated)
   headers:
     Culture:
       $ref: '../alex-api.yml#/components/schemas/Culture'
@@ -50,7 +50,22 @@ UnauthorizedError:
         unauthorized:
           value:
             level: error
-            message: Unauthorized to perform this action!
+            message: User is not authenticated! Please, go to login page and login.
+            fields: []
+ForbiddenError:
+  description: User lacks necessary claims/roles/groups to access the resource or perform the action.
+  headers:
+    Culture:
+      $ref: '../alex-api.yml#/components/schemas/Culture'
+  content:
+    application/json:
+      schema:
+        $ref: "../alex-api.yml#/components/schemas/ResultMessageDTO"
+      examples:
+        unauthorized:
+          value:
+            level: error
+            message: User lacks privileges to perform this action!
             fields: []
 NotFound:
   description: Not found.

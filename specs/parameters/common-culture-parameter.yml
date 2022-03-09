@@ -1,5 +1,5 @@
 in: header
-name: "culture"
+name: "Accept-Language"
 schema:
   type: string
   enum: [ro-RO, en-US, en-GB]

@@ -7,7 +7,7 @@ servers:
   - url: '{server}/api'
     variables:
       server:
-        default: https://alex.test
+        default: https://alex.local
 paths:
   /v1/hc:
     $ref: './resources/hc.yml'
@@ -15,6 +15,8 @@ paths:
     $ref: './resources/accounts.yml'
   /v1/accounts/{id}:
     $ref: './resources/account.yml'
+  /v1/cso:
+    $ref: './resources/cso.yml'
   /v1/sponsors:
     $ref: './resources/sponsors.yml'
   /v1/sponsors/{id}:
