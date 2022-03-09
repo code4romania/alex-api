@@ -22,6 +22,10 @@ If you would like to suggest new functionality, open an Issue and mark it as a _
 
 ## Built With
 
+### Using _devcontainers_
+
+Simply clone repo, open in [VSCode](https://code.visualstudio.com/) and select the option _devcontainer_ (bottom left). Also, check [readme](.devcontainer/README.md).
+
 ### OpenAPI specifications
 
 [OpenAPI specifications](specs/README.md)
