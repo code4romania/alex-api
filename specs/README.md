@@ -1,6 +1,6 @@
 # OpenAPI specifications
 
-This folder is reserved for OpenAPI specifications.
+This folder is reserved for OpenAPI specifications. Also, check [devcontainer readme](../.devcontainer/README.md) for dev environment related options.
 
 ## Building documentation
 

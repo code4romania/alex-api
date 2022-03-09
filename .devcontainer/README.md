@@ -1,6 +1,6 @@
 # _devcontainer_
 
-A few words about dev environment.
+A few words about dev environment. Also, check [specs readme](../specs/README.md) since most of the dev environment is related to OpenAPI specs.
 
 ## Run mock server in devcontainer
 
