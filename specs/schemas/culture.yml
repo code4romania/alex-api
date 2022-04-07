@@ -1,3 +1,2 @@
 type: string
-enum: [ro-RO, en-US, en-GB]
 default: ro-RO
