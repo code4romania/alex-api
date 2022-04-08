@@ -1,9 +1,13 @@
 type: object
-title: BalanceSheetDTO
+title: BalanceSheetItemDTO
 required:
+  - id
   - iban
   - date
 properties:
+  id:
+    type: string
+    description: Balance sheet item ID.
   iban:
     type: string
     description: Account IBAN (same as ID).

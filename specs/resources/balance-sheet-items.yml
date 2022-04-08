@@ -1,11 +1,12 @@
 get:
-  operationId: getBalanceSheets
-  summary: Gets balance sheet list.
+  operationId: getBalanceSheetItems
+  summary: Gets balance sheet item list.
   description: > 
-    Gets balance sheet list based on search filter. 
+    Gets balance sheet item list based on search filter. 
     If there are no matches for the search criteria an empty array is returned.
   tags:
     - "balance-sheets"
+    - "balance-sheets-items"
     - "list"
   parameters:
     - in: query
@@ -31,32 +32,28 @@ get:
     - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
   responses:
     '200':
-      description: Gets balance sheet list.
+      description: Gets balance sheet item list.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../alex-api.yml#/components/schemas/BalanceSheetDTO'
+              $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemDTO'
           examples:
             sample:
               value:
-                - iban: RO49AAAA1B31007593840000
+                - id: "1"
+                  iban: RO49AAAA1B31007593840000
                   date: "202204"
-                - iban: RO49AAAA1B31007593840000
+                - id: "2"
+                  iban: RO49AAAA1B31007593840000
                   date: "202203"
-                - iban: RO49AAAA1B31007593840000
-                  date: "202202"
-                - iban: RO49AAAA1B31007593840000
-                  date: "202201"
-                - iban: RO51AAAA1B31007593840000
+                - id: "3"
+                  iban: RO51AAAA1B31007593840000
                   date: "202204"
-                - iban: RO51AAAA1B31007593840000
+                - id: "4"
+                  iban: RO51AAAA1B31007593840000
                   date: "202203"
-                - iban: RO51AAAA1B31007593840000
-                  date: "202202"
-                - iban: RO51AAAA1B31007593840000
-                  date: "202201"
     # Common responses
     '400':
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
@@ -65,9 +62,9 @@ get:
     '403':
       $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 post:
-  operationId: createBalanceSheet
-  summary: Create balance sheet.
-  description: Creates balance sheet for the specified account IBAN and date (format yyyyMM).
+  operationId: createBalanceSheetItem
+  summary: Create balance sheet item.
+  description: Creates balance sheet item for the specified account IBAN and date (format yyyyMM).
   tags:
     - "balance-sheets"
     - "create"
@@ -76,12 +73,14 @@ post:
     - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
   requestBody:
-    description: New balance sheet data.
+    description: >
+      New balance sheet data.
+      "id" field is ignored.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/BalanceSheetDTO'
+          $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemDTO'
   responses:
     '201':
       $ref: '../alex-api.yml#/components/responses/Created'
