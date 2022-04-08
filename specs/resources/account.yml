@@ -20,7 +20,7 @@ get:
             sample-01:
               value:
                 alias: my-main-ccy
-                IBAN: RO49AAAA1B31007593840000
+                iban: RO49AAAA1B31007593840000
                 shortIBAN: '49-9384'
                 swift: SOME4SWIFT
                 bank: The AAAA Bank
@@ -29,7 +29,7 @@ get:
             sample-02:
               value:
                 alias: my-main-ccy
-                IBAN: RO51AAAA1B31007593840000
+                iban: RO51AAAA1B31007593840000
                 shortIBAN: '51-9384'
                 swift: SOME4SWIFT
                 bank: The AAAA Bank

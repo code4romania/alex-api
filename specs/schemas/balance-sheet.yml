@@ -1,0 +1,12 @@
+type: object
+title: BalanceSheetDTO
+required:
+  - iban
+  - date
+properties:
+  iban:
+    type: string
+    description: Account IBAN (same as ID).
+  date:
+    type: string
+    description: Date in yyyyMM format.
