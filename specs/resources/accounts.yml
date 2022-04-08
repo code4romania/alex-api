@@ -24,9 +24,6 @@ get:
   responses:
     '200':
       description: Gets accounts' list.
-      headers:
-        Culture:
-          $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:

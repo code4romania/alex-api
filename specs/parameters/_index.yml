@@ -2,8 +2,6 @@ CommonIdParameter:
   $ref: "./common-id-parameter.yml"
 CommonCultureParameter:
   $ref: "./common-culture-parameter.yml"
-AccountIdParameter:
-  $ref: "./account-id-parameter.yml"
 CommonSkipParameter:
   $ref: "./common-skip-parameter.yml"
 CommonSortParameter:

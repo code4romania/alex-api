@@ -1,6 +1,0 @@
-in: path
-name: "id"
-schema:
-  type: string
-required: true
-description: ID parameter should represent the IBAN of the account.

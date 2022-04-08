@@ -5,16 +5,13 @@ get:
   tags:
     - "accounts"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
     # Common general parameters
     - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter' 
   responses:
     '200':
       description: Gets specified account.
-      headers:
-        Culture:
-          $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:
@@ -55,7 +52,7 @@ put:
     - "accounts"
     - "update"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/AccountIdParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
     # Common general parameters
     - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
@@ -82,7 +79,7 @@ delete:
     - "accounts"
     - "delete"
   parameters:
-    - $ref: "../alex-api.yml#/components/parameters/AccountIdParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
   responses:
     '200':
       description: OK
