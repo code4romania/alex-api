@@ -4,6 +4,9 @@ required:
   - id
   - iban
   - date
+  - documentDate
+  - name
+  - amount
 properties:
   id:
     type: string
@@ -14,3 +17,25 @@ properties:
   date:
     type: string
     description: Date in yyyyMM format.
+  documentDate:
+    type: date
+    description: Document date
+  name:
+    type: string
+    description: Name or description of the operation.
+  description:
+    type: string
+    description: A description.
+  amount:
+    type: number
+    description: Amount. Positive value for credit, negative value for debit. The currency is the currency of the IBAN.
+  sourceId:
+    type: string
+    description: Where the amount is going or coming from.
+  categoryId:
+    type: string
+    description: Budget category ID.
+  status:
+    type: string
+    description: Status.
+  
