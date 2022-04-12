@@ -1,7 +1,9 @@
 get:
   operationId: getAccounts
   summary: Gets accounts' list.
-  description: Gets accounts' list based on search filter.
+  description: >
+    Gets accounts' list based on search filter.
+    If there are no matches for the search criteria an empty array is returned.
   tags:
     - "accounts"
     - "list"
@@ -13,7 +15,6 @@ get:
       required: false
       description: >
         Search parameter is used to filter accounts using IBAN, alias and short IBAN.
-        If no account matches search criteria then an empty array is returned.        
     # Common search query parameters.
     - $ref: '../alex-api.yml#/components/parameters/CommonSortParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonSkipParameter'
@@ -24,9 +25,6 @@ get:
   responses:
     '200':
       description: Gets accounts' list.
-      headers:
-        Culture:
-          $ref: '../alex-api.yml#/components/schemas/Culture'
       content:
         application/json:
           schema:
@@ -37,14 +35,14 @@ get:
             sample:
               value:
                 - alias: my-main-ccy
-                  IBAN: RO49AAAA1B31007593840000
+                  iban: RO49AAAA1B31007593840000
                   shortIBAN: '49-9384'
                   swift: SOME4SWIFT
                   bank: The AAAA Bank
                   currency: RON
                   isCash: false
                 - alias: my-other-ccy
-                  IBAN: RO51AAAA1B31007593840000
+                  iban: RO51AAAA1B31007593840000
                   shortIBAN: '51-9384'
                   swift: SOME4SWIFT
                   bank: The AAAA Bank

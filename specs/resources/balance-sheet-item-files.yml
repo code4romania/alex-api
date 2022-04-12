@@ -1,0 +1,73 @@
+get:
+  operationId: getBalanceSheetItemFiles
+  summary: Gets balance sheet item file list.
+  description: > 
+    Gets balance sheet item file list.
+  tags:
+    - "balance-sheets"
+    - "balance-sheets-items"
+    - "files"
+    - "list"
+  parameters:
+    # Balance sheet item ID
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
+    # Common general parameters
+    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+  responses:
+    '200':
+      description: Gets balance sheet item file list.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../alex-api.yml#/components/schemas/FileAttachmentDTO'
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+post:
+  operationId: createBalanceSheetItemFile
+  summary: Attach file(s) to balance sheet item.
+  description: >
+    Attach file(s) to balance sheet item. Can upload multiple files,
+    see https://swagger.io/docs/specification/describing-request-body/file-upload/
+    for sample request.
+  tags:
+    - "balance-sheets"
+    - "balance-sheets-items"
+    - "files"
+    - "attach"
+  parameters:
+    # Balance sheet item ID
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
+    # Common general parameters
+    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+  requestBody:
+    required: true
+    content:
+      # Content source here https://swagger.io/docs/specification/describing-request-body/file-upload/
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            filename:
+              type: array
+              items:
+                type: string
+                format: binary
+  responses:
+    '201':
+      $ref: '../alex-api.yml#/components/responses/Created'
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'

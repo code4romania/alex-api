@@ -1,0 +1,55 @@
+type: object
+title: BalanceSheetItemDTO
+required:
+  - id
+  - iban
+  - date
+  - documentDate
+  - name
+  - amount
+  - currency
+  - categoryId
+properties:
+  id:
+    type: string
+    description: Balance sheet item ID.
+  iban:
+    type: string
+    description: Account IBAN (same as ID).
+  date:
+    type: string
+    description: Date in yyyyMM format.
+  documentDate:
+    type: string
+    format: date
+    description: Document date in RFC 3339, section 5.6, for example, 2017-07-21.
+  name:
+    type: string
+    description: Name or description of the operation.
+  description:
+    type: string
+    description: A description.
+  amount:
+    type: number
+    description: Amount. Positive value for credit (incoming), negative value for debit (spending). The currency is the currency of the IBAN.
+  currency:
+    type: string
+    description: Currency of the amount.
+  grantId:
+    type: string
+    description: Grant ID.
+  paymentId:
+    type: string
+    description: Payment ID.
+  categoryId:
+    type: string
+    description: Balance sheet category ID.
+  status:
+    type: string
+    description: Status.
+  fileIds:
+    type: array
+    items:
+      $ref: '../alex-api.yml#/components/schemas/FileAttachmentDTO'
+    description: IDs of files that can be used with file API.
+  

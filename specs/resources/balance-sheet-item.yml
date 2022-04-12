@@ -1,9 +1,11 @@
 get:
-  operationId: getAccount
-  summary: Gets account.
-  description: Gets single account based on ID.
+  operationId: getBalanceSheetItem
+  summary: Gets balance sheet item.
+  description: > 
+    Gets balance sheet item.
   tags:
-    - "accounts"
+    - "balance-sheets"
+    - "balance-sheets-items"
   parameters:
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
     # Common general parameters
@@ -15,26 +17,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../alex-api.yml#/components/schemas/AccountDTO'
-          examples:
-            sample-01:
-              value:
-                alias: my-main-ccy
-                iban: RO49AAAA1B31007593840000
-                shortIBAN: '49-9384'
-                swift: SOME4SWIFT
-                bank: The AAAA Bank
-                currency: RON
-                isCash: false
-            sample-02:
-              value:
-                alias: my-main-ccy
-                iban: RO51AAAA1B31007593840000
-                shortIBAN: '51-9384'
-                swift: SOME4SWIFT
-                bank: The AAAA Bank
-                currency: EUR
-                isCash: false
+            $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemDTO'
     '404':
       $ref: '../alex-api.yml#/components/responses/NotFound'
     # Common responses
@@ -45,24 +28,24 @@ get:
     '403':
       $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 put:
-  operationId: updateAccount
-  summary: Update account.
-  description: Updates an account.
+  operationId: updateBalanceSheetItem
+  summary: Update balance sheet item.
+  description: Updates an existing balance sheet item.
   tags:
-    - "accounts"
+    - "pantrons"
     - "update"
   parameters:
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
     # Common general parameters
     - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter' 
   requestBody:
-    description: Account data.
+    description: Balance sheet item data.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/AccountUpdateDTO'
+          $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemUpdateDTO'
   responses:
     '204':
       description: Updated
@@ -71,12 +54,15 @@ put:
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
     '401':
       $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 delete:
-  operationId: deleteAccount
-  summary: Delete account.
-  description: Deletes an account.
+  operationId: deleteBalanceSheetItem
+  summary: Delete balance sheet item.
+  description: Deletes balance sheet item.
   tags:
-    - "accounts"
+    - "balance-sheets"
+    - "balance-sheets-items"
     - "delete"
   parameters:
     - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"

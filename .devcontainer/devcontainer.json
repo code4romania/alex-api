@@ -28,7 +28,7 @@
 	"forwardPorts": [5000],
 
 	//"postStartCommand": "swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml && open-api-mocker -s specs/alex-api-bundle.yml -w",
-
+	"postStartCommand": "dotnet restore src/Alex.Api/",
 	// [Optional] To reuse of your local HTTPS dev cert:
 	//
 	// 1. Export it locally using this command:

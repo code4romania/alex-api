@@ -1,8 +1,5 @@
 Created:
   description: Created.
-  headers:
-    Culture:
-      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     text/plain:
       schema:
@@ -18,9 +15,6 @@ Created:
             id: ing-ro
 InvalidOperation:
   description: Bad request.
-  headers:
-    Culture:
-      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     application/json:
       schema:
@@ -39,9 +33,6 @@ InvalidOperation:
                 message: Alias is empty!
 UnauthorizedError:
   description: Access token is missing or invalid - HTTP 401 Unauthorized (not authenticated)
-  headers:
-    Culture:
-      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     application/json:
       schema:
@@ -54,9 +45,6 @@ UnauthorizedError:
             fields: []
 ForbiddenError:
   description: User lacks necessary claims/roles/groups to access the resource or perform the action.
-  headers:
-    Culture:
-      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     application/json:
       schema:
@@ -69,9 +57,6 @@ ForbiddenError:
             fields: []
 NotFound:
   description: Not found.
-  headers:
-    Culture:
-      $ref: '../alex-api.yml#/components/schemas/Culture'
   content:
     application/json:
       schema:

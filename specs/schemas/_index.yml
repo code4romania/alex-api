@@ -2,10 +2,16 @@ AccountDTO:
   $ref: "./account.yml"
 AccountUpdateDTO:
   $ref: "./account-update.yml"
+BalanceSheetItemDTO:
+  $ref: "./balance-sheet-item.yml"
+BalanceSheetItemUpdateDTO:
+  $ref: "./balance-sheet-item-update.yml"
 Culture:
   $ref: "./culture.yml"
 CsoDTO:
   $ref: "./cso.yml"
+FileAttachmentDTO:
+  $ref: "./common-file-attachment.yml"
 SponsorDTO:
   $ref: "./sponsor.yml"
 SponsorUpdateDTO:

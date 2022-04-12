@@ -4,7 +4,11 @@ This folder is reserved for OpenAPI specifications. Also, check [devcontainer re
 
 ## Building documentation
 
-Use ```swagger-cli``` to build these specs.
+If using [devcontainers](../.devcontainer/README.md), just run ```./build/dev.generate.src.sh``` to
+validate, bundle and generate source code in one line 
+(should work locally if all dependencies are installed). Checkout [its readme](../build/README.md).
+
+Alternatively, use ```swagger-cli bundle``` to build specs:
 
 ```Bash
 npm install -g swagger-cli
@@ -13,6 +17,25 @@ swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type
 
 Find an [OpenAPI build sample here](https://gist.github.com/andreifloroiu/bbbcadc3a8de4df43f93be4d7b85e175).
 
+Bundle from repo without local cloning:
+
+```bash
+swagger-cli bundle https://raw.githubusercontent.com/code4romania/alex-api/main/specs/alex-api.yml --outfile alex-api-bundle.yml --type yaml
+```
+
+### Validate specs
+
+Use ```swagger-cli validate``` to validate specs:
+
+```Bash
+swagger-cli validate specs/alex-api.yml
+```
+
+Validate remote:
+
+```bash
+swagger-cli validate https://raw.githubusercontent.com/code4romania/alex-api/main/specs/alex-api.yml
+```
 ## Generate code
 
 Using [this tool](https://openapi-generator.tech/).

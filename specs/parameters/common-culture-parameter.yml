@@ -2,7 +2,6 @@ in: header
 name: "Accept-Language"
 schema:
   type: string
-  enum: [ro-RO, en-US, en-GB]
   default: ro-RO
 required: false
-description: Culture parameter.
+description: Culture parameter. Can be ro-RO, en-GB
