@@ -33,7 +33,10 @@ get:
 post:
   operationId: createBalanceSheetItemFile
   summary: Attach file(s) to balance sheet item.
-  description: Attach file(s) to balance sheet item.
+  description: >
+    Attach file(s) to balance sheet item. Can upload multiple files,
+    see https://swagger.io/docs/specification/describing-request-body/file-upload/
+    for sample request.
   tags:
     - "balance-sheets"
     - "balance-sheets-items"
@@ -48,6 +51,7 @@ post:
   requestBody:
     required: true
     content:
+      # Content source here https://swagger.io/docs/specification/describing-request-body/file-upload/
       multipart/form-data:
         schema:
           type: object
