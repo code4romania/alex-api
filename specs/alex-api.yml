@@ -4,6 +4,8 @@ info:
   version: 1.0.0
   description: >
     ALEX API consumed by ALEX CLIENT.
+  # Validate using: swagger-cli validate specs/alex-api.yml
+  # Bundle using: swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
 servers:
   - url: '{server}/api'
     variables:
@@ -20,6 +22,10 @@ paths:
     $ref: './resources/balance-sheet-items.yml'
   /v1/balance-sheet/items/{id}:
     $ref: './resources/balance-sheet-item.yml'
+  /v1/balance-sheet/items/{id}/files:
+    $ref: './resources/balance-sheet-item-files.yml'
+  /v1/balance-sheet/items/{id}/files/{fileId}:
+    $ref: './resources/balance-sheet-item-file.yml'
   /v1/cso:
     $ref: './resources/cso.yml'
   /v1/sponsors:

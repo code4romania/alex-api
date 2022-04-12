@@ -1,5 +1,7 @@
 CommonIdParameter:
   $ref: "./common-id-parameter.yml"
+CommonFileIdParameter:
+  $ref: "./common-file-id-parameter.yml"
 CommonCultureParameter:
   $ref: "./common-culture-parameter.yml"
 CommonSkipParameter:

@@ -1,0 +1,14 @@
+type: object
+title: FileAttachmentDTO
+description: Common file attachment DTO.
+properties:
+  id:
+    type: string
+    description: File attachment ID.
+  category:
+    type: string
+    enum: [balance-sheet-item]
+    description: Specifies category for the file attachment.
+  name:
+    type: string
+    description: Original file name.

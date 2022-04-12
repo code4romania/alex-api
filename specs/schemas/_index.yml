@@ -10,6 +10,8 @@ Culture:
   $ref: "./culture.yml"
 CsoDTO:
   $ref: "./cso.yml"
+FileAttachmentDTO:
+  $ref: "./common-file-attachment.yml"
 SponsorDTO:
   $ref: "./sponsor.yml"
 SponsorUpdateDTO:
