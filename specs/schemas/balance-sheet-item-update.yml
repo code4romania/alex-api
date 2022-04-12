@@ -22,7 +22,17 @@ properties:
     description: A description.
   amount:
     type: number
-    description: Amount. Positive value for credit (incoming), negative value for debit (spending). The currency is the currency of the IBAN.
+    description: Amount. No currency specified, account DTO already has that info.
+  direction:
+    type: string
+    enum: ['credit', 'debit']
+    description: >
+      The direction of the amount:
+      - credit: incoming amount
+      - debit: spent amount
+  deduction:
+    type: boolean
+    description: If this item is a deduction or not.
   grantId:
     type: string
     description: Grant ID.
@@ -32,7 +42,4 @@ properties:
   categoryId:
     type: string
     description: Balance sheet category ID.
-  status:
-    type: string
-    description: Status.
   
