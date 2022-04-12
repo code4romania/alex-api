@@ -4,9 +4,9 @@ This folder is reserved for OpenAPI specifications. Also, check [devcontainer re
 
 ## Building documentation
 
-If using [devcontainers](../.devcontainer/README.md), just run ```./dev.generate.src.sh``` to
+If using [devcontainers](../.devcontainer/README.md), just run ```./build/dev.generate.src.sh``` to
 validate, bundle and generate source code in one line 
-(should work locally if all dependencies are installed).
+(should work locally if all dependencies are installed). Checkout [its readme](../build/README.md).
 
 Alternatively, use ```swagger-cli bundle``` to build specs:
 
