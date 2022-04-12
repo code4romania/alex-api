@@ -2,7 +2,8 @@ openapi: '3.0.3'
 info:
   title: ALEX API
   version: 1.0.0
-  description: ALEX API consumed by ALEX clients.
+  description: >
+    ALEX API consumed by ALEX CLIENT.
 servers:
   - url: '{server}/api'
     variables:
@@ -17,6 +18,8 @@ paths:
     $ref: './resources/account.yml'
   /v1/balance-sheet/items:
     $ref: './resources/balance-sheet-items.yml'
+  /v1/balance-sheet/items/{id}:
+    $ref: './resources/balance-sheet-item.yml'
   /v1/cso:
     $ref: './resources/cso.yml'
   /v1/sponsors:

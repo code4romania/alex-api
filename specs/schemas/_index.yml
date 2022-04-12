@@ -4,6 +4,8 @@ AccountUpdateDTO:
   $ref: "./account-update.yml"
 BalanceSheetItemDTO:
   $ref: "./balance-sheet-item.yml"
+BalanceSheetItemUpdateDTO:
+  $ref: "./balance-sheet-item-update.yml"
 Culture:
   $ref: "./culture.yml"
 CsoDTO:

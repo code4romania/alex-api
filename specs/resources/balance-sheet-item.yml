@@ -1,9 +1,11 @@
 get:
-  operationId: getSponsor
-  summary: Gets sponsor.
-  description: Gets single sponsor based on ID.
+  operationId: getBalanceSheetItem
+  summary: Gets balance sheet item.
+  description: > 
+    Gets balance sheet item.
   tags:
-    - "sponsors"
+    - "balance-sheets"
+    - "balance-sheets-items"
   parameters:
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
     # Common general parameters
@@ -11,38 +13,11 @@ get:
     - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter' 
   responses:
     '200':
-      description: Gets specified sponsor.
+      description: Gets specified account.
       content:
         application/json:
           schema:
-            $ref: '../alex-api.yml#/components/schemas/SponsorDTO'
-          examples:
-            sample-01:
-              value:
-                id: ing-ro
-                name: ING Romania
-                alias: ING RO
-                fiscalId: RO19
-                description: Lorem ipsum something about ING RO.
-                legalRepresentative:
-                  firstName: Someone
-                  lastName: Legal
-                  phone: "0712 345 567"
-                  email: "someone@ing.com"
-                  address: "Bdul Nicolae Balcescu 30, Bucuresti"
-            sample-02:
-              value:
-                id: ing-nl
-                name: ING Netherlans
-                alias: ING NL
-                fiscalId: null
-                description: Lorem ipsum something about ING NL.
-                legalRepresentative:
-                  firstName: Someone Other
-                  lastName: Legal Stuff
-                  phone: "0712 345 567"
-                  email: "someone@ing.nl"
-                  address: "Amsterdam"
+            $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemDTO'
     '404':
       $ref: '../alex-api.yml#/components/responses/NotFound'
     # Common responses
@@ -53,11 +28,11 @@ get:
     '403':
       $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 put:
-  operationId: updateSponsor
-  summary: Update sponsor.
-  description: Updates an existing sponsor.
+  operationId: updateBalanceSheetItem
+  summary: Update balance sheet item.
+  description: Updates an existing balance sheet item.
   tags:
-    - "sponsors"
+    - "pantrons"
     - "update"
   parameters:
     - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
@@ -65,12 +40,12 @@ put:
     - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
     - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter' 
   requestBody:
-    description: Sponsor data.
+    description: Balance sheet item data.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/SponsorUpdateDTO'
+          $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemUpdateDTO'
   responses:
     '204':
       description: Updated
@@ -82,11 +57,12 @@ put:
     '403':
       $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 delete:
-  operationId: deleteSponsor
-  summary: Delete sponsor.
-  description: Deletes a sponsor.
+  operationId: deleteBalanceSheetItem
+  summary: Delete balance sheet item.
+  description: Deletes balance sheet item.
   tags:
-    - "sponsors"
+    - "balance-sheets"
+    - "balance-sheets-items"
     - "delete"
   parameters:
     - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
