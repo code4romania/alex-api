@@ -1,3 +1,36 @@
+get:
+  operationId: getBalanceSheetItemFile
+  summary: Download balance sheet item file.
+  description: > 
+    Download balance sheet item file.
+  tags:
+    - "balance-sheets"
+    - "balance-sheets-items"
+    - "files"
+    - "download"
+  parameters:
+    # File ID
+    - $ref: "../alex-api.yml#/components/parameters/CommonFileIdParameter"
+    # Balance sheet item ID
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
+    # Common general parameters
+    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
+    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+  responses:
+    '200':
+      description: Download balance sheet item file.
+      content:
+        application/octetstream:
+          schema:
+            type: "string"
+            format: "binary"
+    # Common responses
+    '400':
+      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
+    '401':
+      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
+    '403':
+      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
 delete:
   operationId: deleteBalanceSheetItemFile
   summary: Delete balance sheet item file.

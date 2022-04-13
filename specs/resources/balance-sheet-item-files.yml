@@ -22,7 +22,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../alex-api.yml#/components/schemas/FileAttachmentDTO'
+              $ref: '../alex-api.yml#/components/schemas/FileMetadataDTO'
     # Common responses
     '400':
       $ref: '../alex-api.yml#/components/responses/InvalidOperation'
