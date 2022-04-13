@@ -50,6 +50,6 @@ properties:
   fileIds:
     type: array
     items:
-      $ref: '../alex-api.yml#/components/schemas/FileAttachmentDTO'
+      $ref: '../alex-api.yml#/components/schemas/FileMetadataDTO'
     description: IDs of files that can be used with file API.
   
