@@ -33,13 +33,15 @@ properties:
   deduction:
     type: boolean
     description: If this item is a deduction or not.
-  grantId:
-    type: string
-    description: Grant ID.
   paymentId:
     type: string
     description: Payment ID.
   categoryId:
     type: string
     description: Balance sheet category ID.
+  incomeSources:
+    type: array
+    items:
+      $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemIncomeSourceDTO'
+    description: Income sources.
   

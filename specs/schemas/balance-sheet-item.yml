@@ -18,7 +18,7 @@ properties:
     description: Account IBAN (same as ID).
   date:
     type: string
-    description: Date in yyyyMM format.
+    description: Date in yyyyMM format. Same as document date but formatted as yyyyMM.
   documentDate:
     type: string
     format: date
@@ -35,9 +35,6 @@ properties:
   currency:
     type: string
     description: Currency of the amount.
-  grantId:
-    type: string
-    description: Grant ID.
   paymentId:
     type: string
     description: Payment ID.
@@ -47,7 +44,12 @@ properties:
   status:
     type: string
     description: Status.
-  fileIds:
+  incomeSources:
+    type: array
+    items:
+      $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemIncomeSourceDTO'
+    description: Income sources.
+  files:
     type: array
     items:
       $ref: '../alex-api.yml#/components/schemas/FileMetadataDTO'
