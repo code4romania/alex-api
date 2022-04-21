@@ -6,10 +6,18 @@ BalanceSheetItemDTO:
   $ref: "./balance-sheet-item.yml"
 BalanceSheetItemUpdateDTO:
   $ref: "./balance-sheet-item-update.yml"
-BalanceSheetItemSourceDTO:
-  $ref: "./balance-sheet-item-source.yml"
-BalanceSheetItemSourceUpdateDTO:
-  $ref: "./balance-sheet-item-source-update.yml"
+BalanceSheetItemSourceBase:
+  $ref: "./balance-sheet-item-source-base.yml"
+BalanceSheetItemSourceBaseUpdate:
+  $ref: "./balance-sheet-item-source-base-update.yml"
+BalanceSheetItemSourceGrantDTO:
+  $ref: "./balance-sheet-item-source-grant.yml"
+BalanceSheetItemSourceGrantUpdateDTO:
+  $ref: "./balance-sheet-item-source-grant-update.yml"
+BalanceSheetItemSourceNonGrantDTO:
+  $ref: "./balance-sheet-item-source-nongrant.yml"
+BalanceSheetItemSourceNonGrantUpdateDTO:
+  $ref: "./balance-sheet-item-source-nongrant-update.yml"
 Culture:
   $ref: "./culture.yml"
 CsoDTO:

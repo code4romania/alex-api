@@ -42,6 +42,13 @@ properties:
   sources:
     type: array
     items:
-      $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceDTO'
+      anyOf:
+        - $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceGrantUpdateDTO'
+        - $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceNonGrantUpdateDTO'
+      discriminator:
+        propertyName: sourceTypeId
+        mapping:
+          grant: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceGrantUpdateDTO'
+          non-grant: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceNonGrantUpdateDTO'
     description: Balance sheet item sources.
   

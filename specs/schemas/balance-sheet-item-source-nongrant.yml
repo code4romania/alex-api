@@ -1,0 +1,12 @@
+type: object
+title: BalanceSheetItemSourceNonGrantDTO
+allOf:
+  - $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceBase'
+  - type: object
+    required:
+      - sourceCategoryId
+    properties:
+      sourceCategoryId:
+        type: string
+        description: Source type category ID.
+  

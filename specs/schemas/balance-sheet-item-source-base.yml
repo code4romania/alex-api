@@ -1,0 +1,17 @@
+type: object
+title: BalanceSheetItemSourceBase
+description: This is the base model and should not be used as DTO. See final types.
+required:
+  - id
+  - sourceTypeId
+  - amount
+properties:
+  id:
+    type: string
+    description: Balance sheet item source ID.
+  sourceTypeId:
+    type: string
+    enum: [grant, non-grant]
+  amount:
+    type: number
+    description: Amount.

@@ -1,0 +1,13 @@
+type: object
+title: BalanceSheetItemSourceNonGrantUpdateDTO
+description: Inherits BalanceSheetItemSourceUpdateBase.
+allOf:
+  - $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceBaseUpdate'
+  - type: object
+    required:
+      - sourceCategoryId
+    properties:
+      sourceCategoryId:
+        type: string
+        description: Source type category ID.
+  

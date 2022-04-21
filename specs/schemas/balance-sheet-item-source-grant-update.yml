@@ -1,0 +1,14 @@
+type: object
+title: BalanceSheetItemSourceGrantUpdateDTO
+allOf:
+  - $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceBaseUpdate'
+  - type: object
+    required:
+      - budgetLineId
+    properties:
+      budgetLineId:
+        type: string
+        description: ID of the budget line. Budget line should gives us the grant.
+      amountCoFunded:
+        type: number
+        description: Co-funded amount.
