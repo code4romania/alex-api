@@ -1,5 +1,5 @@
 type: object
-title: BalanceSheetItemSourceUpdateBase
+title: BalanceSheetItemSourceBaseUpdate
 description: This is the base model and should not be used as DTO. See final types.
 required:
   - sourceType
