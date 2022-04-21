@@ -44,11 +44,11 @@ properties:
   status:
     type: string
     description: Status.
-  incomeSources:
+  sources:
     type: array
     items:
-      $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemIncomeSourceDTO'
-    description: Income sources.
+      $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemSourceDTO'
+    description: Sources.
   files:
     type: array
     items:

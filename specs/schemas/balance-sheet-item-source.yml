@@ -1,14 +1,22 @@
 type: object
-title: BalanceSheetItemIncomeSourceUpdateDTO
+title: BalanceSheetItemSourceDTO
 required:
+  - id
+  - balanceSheetItemId
   - sourceType
 properties:
+  id:
+    type: string
+    description: Balance sheet item source ID.
+  balanceSheetItemId:
+    type: string
+    description: Balance sheet item ID.
   sourceTypeId:
     type: string
     enum: [grant, non-grant]
   grantId:
     type: string
-    description: Grant ID. Not null if income source type is grant.
+    description: Grant ID. Not null if source type is grant.
   budgetLineId:
     type: string
     description: Budget line ID. Not null if income source type is grant.
@@ -20,4 +28,4 @@ properties:
     description: Co-funded amount.
   sourceCategoryId:
     type: string
-    description: Income source type category ID. Not null if income source type is grant.
+    description: Income source type category ID. Not null if source type is grant.

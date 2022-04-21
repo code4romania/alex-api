@@ -6,10 +6,10 @@ BalanceSheetItemDTO:
   $ref: "./balance-sheet-item.yml"
 BalanceSheetItemUpdateDTO:
   $ref: "./balance-sheet-item-update.yml"
-BalanceSheetItemIncomeSourceDTO:
-  $ref: "./balance-sheet-item-income-source.yml"
-BalanceSheetItemIncomeSourceUpdateDTO:
-  $ref: "./balance-sheet-item-income-source-update.yml"
+BalanceSheetItemSourceDTO:
+  $ref: "./balance-sheet-item-source.yml"
+BalanceSheetItemSourceUpdateDTO:
+  $ref: "./balance-sheet-item-source-update.yml"
 Culture:
   $ref: "./culture.yml"
 CsoDTO:

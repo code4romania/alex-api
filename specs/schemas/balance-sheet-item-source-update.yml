@@ -1,0 +1,23 @@
+type: object
+title: BalanceSheetItemSourceUpdateDTO
+required:
+  - sourceType
+properties:
+  sourceTypeId:
+    type: string
+    enum: [grant, non-grant]
+  grantId:
+    type: string
+    description: Grant ID. Not null if source type is grant.
+  budgetLineId:
+    type: string
+    description: Budget line ID. Not null if source type is grant.
+  amount:
+    type: number
+    description: Amount of source.
+  amountCoFunded:
+    type: number
+    description: Co-funded amount.
+  sourceCategoryId:
+    type: string
+    description: Source type category ID. Not null if source type is grant.
