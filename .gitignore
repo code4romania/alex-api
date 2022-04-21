@@ -1,5 +1,6 @@
 ## Ignore OpenAPI Swagger build artifacts
 **/alex-api-bundle.yml
+**/alex-api-bundle.json
 **/openapitools.json
 _build
 
