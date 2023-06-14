@@ -1,15 +1,16 @@
-version: '3.8'
+---
+version: "3.8"
 services:
   alex-api:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
       args:
-        VARIANT: '6.0'
-        NODE_VERSION: 'lts/*'
+        VARIANT: "7.0"
+        NODE_VERSION: "lts/*"
     volumes:
       - ..:/workspace:cached
-    # Overrides default command so things don't shut down after the process ends.
+    # Overrides default command
     command: sleep infinity
   alex-api-mock:
     build:
@@ -28,36 +29,8 @@ services:
       - 80:80
       - 443:443
     depends_on:
-      - alex-idp
       - alex-api-mock
-  alex-db:
-    image: postgres
-    container_name: alex-db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: keycloak
-      POSTGRES_USER: keycloak
-      POSTGRES_PASSWORD: password
-  alex-idp:
-    image: quay.io/keycloak/keycloak:legacy
-    container_name: alex-idp
-    environment:
-      DB_VENDOR: POSTGRES
-      DB_ADDR: alex-db
-      DB_DATABASE: keycloak
-      DB_USER: keycloak
-      DB_SCHEMA: public
-      DB_PASSWORD: password
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: Pa55w0rd      
-      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
-      #JDBC_PARAMS: "ssl=true"
-      PROXY_ADDRESS_FORWARDING: "true"
-      REDIRECT_SOCKET: "proxy-https"
-      KEYCLOAK_FRONTEND_URL: https://alex.local/auth
-    depends_on:
-      - alex-db
 volumes:
   postgres_data:
-      driver: local
+    driver: local
+
