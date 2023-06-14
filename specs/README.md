@@ -4,15 +4,15 @@ This folder is reserved for OpenAPI specifications. Also, check [devcontainer re
 
 ## Building documentation
 
-If using [devcontainers](../.devcontainer/README.md), just run ```./build/dev.generate.src.sh``` to
-validate, bundle and generate source code in one line 
+If using [devcontainers](../.devcontainer/README.md), just run `./build/dev.generate.src.sh` to
+validate, bundle and generate source code in one line
 (should work locally if all dependencies are installed). Checkout [its readme](../build/README.md).
 
-Alternatively, use ```swagger-cli bundle``` to build specs:
+Alternatively, use `swagger-cli bundle` to build specs:
 
 ```Bash
 npm install -g swagger-cli
-swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml 
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
 ```
 
 Find an [OpenAPI build sample here](https://gist.github.com/andreifloroiu/bbbcadc3a8de4df43f93be4d7b85e175).
@@ -25,7 +25,7 @@ swagger-cli bundle https://raw.githubusercontent.com/code4romania/alex-api/main/
 
 ### Validate specs
 
-Use ```swagger-cli validate``` to validate specs:
+Use `swagger-cli validate` to validate specs:
 
 ```Bash
 swagger-cli validate specs/alex-api.yml
@@ -36,6 +36,7 @@ Validate remote:
 ```bash
 swagger-cli validate https://raw.githubusercontent.com/code4romania/alex-api/main/specs/alex-api.yml
 ```
+
 ## Generate code
 
 Using [this tool](https://openapi-generator.tech/).
@@ -47,7 +48,7 @@ First, must have JRE on your machine:
 sudo apt install default-jre
 ```
 
-Now, install ```npm``` wrapper package:
+Now, install `npm` wrapper package:
 
 ```Bash
 npm install @openapitools/openapi-generator-cli -g
@@ -61,17 +62,17 @@ See generator list [here](https://openapi-generator.tech/docs/generators/).
 and run (for library):
 
 ```Bash
-swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
-openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcorestubs -g aspnetcore\
-    --additional-properties=aspnetCoreVersion=5.0,buildTarget=library,isLibrary=true,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml \
+    && openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcorestubs -g aspnetcore \
+        --additional-properties=aspnetCoreVersion=5.0,buildTarget=library,isLibrary=true,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
 
 For program, run:
 
 ```Bash
-swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
-openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcorestubs -g aspnetcore\
-    --additional-properties=aspnetCoreVersion=5.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml \
+    && openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcorestubs -g aspnetcore\
+        --additional-properties=aspnetCoreVersion=5.0,buildTarget=program,isLibrary=false,operationIsAsync=true,operationResultTask=true,useDefaultRouting=false
 ```
 
 ### Generate client code - axios
@@ -79,8 +80,8 @@ openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/aspnetcore
 [Axios here](https://openapi-generator.tech/docs/generators/typescript-axios).
 
 ```Bash
-swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
-openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/ts-axios -g typescript-axios
+swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml \
+    && openapi-generator-cli generate -i specs/alex-api-bundle.yml -o _build/ts-axios -g typescript-axios
 ```
 
 ### Generate client code - Postman
@@ -93,7 +94,7 @@ Found these steps [here](https://github.com/postmanlabs/postman-app-support/issu
 1. Enter API details: Name and Version
 1. Choose Schema type: OpenAPI 3.0
 1. Choose Schema format: YAML
-1. Import API schema (can't be in _devcontainter_ unless you do some ```docker cp <container-id>:/workspaces/alex-api/specs/alex-api-bundle.yml /mnt/d/tmp/alex-api-bundle.yml``` magic) - find container ID with ```docker ps```
+1. Import API schema (can't be in _devcontainter_ unless you do some `docker cp <container-id>:/workspaces/alex-api/specs/alex-api-bundle.yml /mnt/d/tmp/alex-api-bundle.yml` magic) - find container ID with `docker ps`
 1. Go to newly imported API
 1. Click on 'Generate Collection'
 1. Name your collection
@@ -107,7 +108,7 @@ Found these steps [here](https://github.com/postmanlabs/postman-app-support/issu
 
 ## Useful resources
 
-* [Code Generators](https://github.com/OpenAPITools/openapi-generator#overview) - includes code generators for both client and server stubs
-* [OpenAPI Tool List](https://openapi.tools/) - tools recommended by OpenAPI
-* [OpenAPI Best Practices](https://oai.github.io/Documentation/best-practices.html)
-* [OpenAPI/Swagger specs specs :)](https://swagger.io/docs/specification/about/)
+- [Code Generators](https://github.com/OpenAPITools/openapi-generator#overview) - includes code generators for both client and server stubs
+- [OpenAPI Tool List](https://openapi.tools/) - tools recommended by OpenAPI
+- [OpenAPI Best Practices](https://oai.github.io/Documentation/best-practices.html)
+- [OpenAPI/Swagger specs specs :)](https://swagger.io/docs/specification/about/)
