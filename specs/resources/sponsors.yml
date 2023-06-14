@@ -1,3 +1,4 @@
+---
 get:
   operationId: getSponsors
   summary: Gets sponsors' list.
@@ -12,26 +13,24 @@ get:
         type: string
       required: false
       description: >
-        Search parameter is used to filter sponsors using different containing fields.
-        If no account matches search criteria then an empty array is returned.    
+        Search parameter is used to filter sponsors using different containing fields. If no account matches search criteria then an empty array is returned.
     # Export parameter.
-    - $ref: '../alex-api.yml#/components/parameters/ExportFormatParameter'
+    - $ref: "../alex-api.yml#/components/parameters/ExportFormatParameter"
     # Common search query parameters.
-    - $ref: '../alex-api.yml#/components/parameters/CommonSortParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonSkipParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonTopParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonSortParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonSkipParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonTopParameter"
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'     
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   responses:
-    '200':
+    "200":
       description: Gets sponsors' list.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../alex-api.yml#/components/schemas/SponsorDTO'
+              $ref: "../alex-api.yml#/components/schemas/SponsorDTO"
           examples:
             sample:
               value:
@@ -45,7 +44,7 @@ get:
                     lastName: Legal
                     phone: "0712 345 567"
                     email: "someone@ing.com"
-                    address: "Bdul Nicolae Balcescu 30, Bucuresti"  
+                    address: "Bdul Nicolae Balcescu 30, Bucuresti"
                 - id: ing-nl
                   name: ING Netherlans
                   alias: ING NL
@@ -62,12 +61,12 @@ get:
             type: string
             format: binary
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
 post:
   operationId: createSponsor
   summary: Create sponsor.
@@ -77,22 +76,21 @@ post:
     - "create"
   parameters:
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'  
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   requestBody:
     description: New sponsor data.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/SponsorUpdateDTO'
+          $ref: "../alex-api.yml#/components/schemas/SponsorUpdateDTO"
   responses:
-    '201':
-      $ref: '../alex-api.yml#/components/responses/Created'
+    "201":
+      $ref: "../alex-api.yml#/components/responses/Created"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"

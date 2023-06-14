@@ -1,6 +1,8 @@
+---
 in: path
 name: "fileId"
 schema:
   type: string
 required: true
 description: File ID parameter.
+

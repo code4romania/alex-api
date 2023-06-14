@@ -1,3 +1,4 @@
+---
 AccountDTO:
   $ref: "./account.yml"
 AccountUpdateDTO:

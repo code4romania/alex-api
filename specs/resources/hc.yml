@@ -1,11 +1,12 @@
+---
 get:
   operationId: getHC
   summary: Health check endpoint.
-  description: Health check endpoint. 
+  description: Health check endpoint.
   tags:
     - "health-check"
   responses:
-    '200':
+    "200":
       description: Response is OK on API running and reachable.
       content:
         application/json:

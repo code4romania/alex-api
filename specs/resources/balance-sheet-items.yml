@@ -1,11 +1,9 @@
+---
 get:
   operationId: getBalanceSheetItems
   summary: Gets balance sheet item list.
-  description: > 
-    Gets balance sheet item list based on search filter. 
-    If there are no matches for the search criteria an empty array is returned.
-    API should filter based on all search criteria and an intersection of the sets
-    should be returned in case of all paramaters being used.
+  description: >
+    Gets balance sheet item list based on search filter.  If there are no matches for the search criteria an empty array is returned. API should filter based on all search criteria and an intersection of the sets should be returned in case of all paramaters being used.
   tags:
     - "balance-sheets"
     - "balance-sheets-items"
@@ -32,8 +30,7 @@ get:
         format: date
       required: false
       description: >
-        Search parameter used to filter balance sheets from date (all balance sheet items since date)
-        in format RFC 3339, section 5.6, for example, 2017-07-21.
+        Search parameter used to filter balance sheets from date (all balance sheet items since date) in format RFC 3339, section 5.6, for example, 2017-07-21.
     - in: query
       name: dateTo
       schema:
@@ -41,8 +38,7 @@ get:
         format: date
       required: false
       description: >
-        Search parameter used to filter balance sheets until date (all balance sheet items with document date lower then)
-        in format RFC 3339, section 5.6, for example, 2017-07-21.
+        Search parameter used to filter balance sheets until date (all balance sheet items with document date lower then) in format RFC 3339, section 5.6, for example, 2017-07-21.
     - in: query
       name: q
       schema:
@@ -51,28 +47,27 @@ get:
       description: >
         Search parameter used to filter balance sheet items that contain string in either name or description.
     # Common search query parameters.
-    - $ref: '../alex-api.yml#/components/parameters/CommonSortParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonSkipParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonTopParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonSortParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonSkipParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonTopParameter"
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   responses:
-    '200':
+    "200":
       description: Gets balance sheet item list.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemDTO'
+              $ref: "../alex-api.yml#/components/schemas/BalanceSheetItemDTO"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
 post:
   operationId: createBalanceSheetItem
   summary: Create balance sheet item.
@@ -83,21 +78,20 @@ post:
     - "create"
   parameters:
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/BalanceSheetItemDTO'
+          $ref: "../alex-api.yml#/components/schemas/BalanceSheetItemDTO"
   responses:
-    '201':
-      $ref: '../alex-api.yml#/components/responses/Created'
+    "201":
+      $ref: "../alex-api.yml#/components/responses/Created"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"

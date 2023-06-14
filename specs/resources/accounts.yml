@@ -1,9 +1,9 @@
+---
 get:
   operationId: getAccounts
   summary: Gets accounts' list.
   description: >
-    Gets accounts' list based on search filter.
-    If there are no matches for the search criteria an empty array is returned.
+    Gets accounts' list based on search filter. If there are no matches for the search criteria an empty array is returned.
   tags:
     - "accounts"
     - "list"
@@ -16,47 +16,46 @@ get:
       description: >
         Search parameter is used to filter accounts using IBAN, alias and short IBAN.
     # Common search query parameters.
-    - $ref: '../alex-api.yml#/components/parameters/CommonSortParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonSkipParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonTopParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonSortParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonSkipParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonTopParameter"
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   responses:
-    '200':
+    "200":
       description: Gets accounts' list.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../alex-api.yml#/components/schemas/AccountDTO'
+              $ref: "../alex-api.yml#/components/schemas/AccountDTO"
           examples:
             sample:
               value:
                 - alias: my-main-ccy
                   iban: RO49AAAA1B31007593840000
-                  shortIBAN: '49-9384'
+                  shortIBAN: "49-9384"
                   swift: SOME4SWIFT
                   bank: The AAAA Bank
                   currency: RON
                   isCash: false
                 - alias: my-other-ccy
                   iban: RO51AAAA1B31007593840000
-                  shortIBAN: '51-9384'
+                  shortIBAN: "51-9384"
                   swift: SOME4SWIFT
                   bank: The AAAA Bank
                   currency: EUR
                   isCash: false
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
 post:
-  operationId: createAccount    
+  operationId: createAccount
   summary: Create account.
   description: Creates an account.
   tags:
@@ -64,22 +63,21 @@ post:
     - "create"
   parameters:
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   requestBody:
     description: New account data.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/AccountDTO'
+          $ref: "../alex-api.yml#/components/schemas/AccountDTO"
   responses:
-    '201':
-      $ref: '../alex-api.yml#/components/responses/Created'
+    "201":
+      $ref: "../alex-api.yml#/components/responses/Created"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
