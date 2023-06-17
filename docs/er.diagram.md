@@ -1,4 +1,4 @@
-# ER Diagram
+# ER Diagrams
 
 ```mermaid
 erDiagram
@@ -22,7 +22,7 @@ erDiagram
   BALANCE_SHEET_ITEM }o--|| BALANCE_SHEET_ITEM_CATEGORY : "belongs to"
   BALANCE_SHEET_ITEM }o--o{ PAYMENT : "can have"
   BALANCE_SHEET_ITEM }o--o{ GRANT : "can have"
-  BALANCE_SHEET_ITEM ||--|| ACCOUNT
+  BALANCE_SHEET_ITEM ||--|| ACCOUNT : "has"
 
   BALANCE_SHEET_ITEM }o--o{ EXPENSE : "associated with"
   
@@ -104,10 +104,14 @@ erDiagram
   }
 
   BALANCE_SHEET_ITEM {
-    enum    Kind <!-- income, expense -->
-    enum    TypeOfIncome <!-- grant, q-point from product file -->
-    string  #GrantId <!-- FK When type of income is grant -->
-    string  #PaymentId <!-- FK optional payment association -->
+    %% income, expense
+    enum    Kind
+    %% grant, q-point from product file
+    enum    TypeOfIncome
+    %% FK When type of income is grant
+    string  GrantId
+    %% FK optional payment association
+    string  PaymentId
   }
 
   PAYMENT {
@@ -118,22 +122,27 @@ erDiagram
 
   EXPENSE {
     enum      Type
-    enum      Category <!-- EXPENSE_CATEGORY ID -->
-    string    #BUDGET_LINE
-    string    #GRANT
+    %% EXPENSE_CATEGORY ID
+    enum      Category
+    %% FK
+    string    BUDGET_LINE
+    %% FK
+    string    GRANT
     number    Value
     string    Currency
     number    ValueLocal
   }
 ```
 
-CO-fund example
+## CO-fund example
+
 ---
 FUll sum = 100k
 Self co-fund value = 10k
 Partner#1 co-fund value= 5k
 Partner#2 co-fund value= 15k
---- 
+---
+
 Grant properties:
 - Value:100k
 - RegrantedValue: `Value` - `self-co-found-value` - SUM(`Partnerships.Values`) 
@@ -173,9 +182,6 @@ Grant properties:
   - 10k
 
 > Validation rules:
-
-    - grant.self-co-fund-value = SUM(BUDGET.co-fund-self-value)
-
-    - grant.Partnerships.partner#X.Value = SUM(BUDGET.co-fund-partners.partner#x.Value)
-
-    - grant.value = SUM(BUDGET.value)
+> - grant.self-co-fund-value = SUM(BUDGET.co-fund-self-value)
+> - grant.Partnerships.partner#X.Value = SUM(BUDGET.co-fund-partners.partner#x.Value)
+> - grant.value = SUM(BUDGET.value)
