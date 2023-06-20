@@ -1,3 +1,4 @@
+---
 get:
   operationId: getSponsor
   summary: Gets sponsor.
@@ -5,17 +6,16 @@ get:
   tags:
     - "sponsors"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter' 
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   responses:
-    '200':
+    "200":
       description: Gets specified sponsor.
       content:
         application/json:
           schema:
-            $ref: '../alex-api.yml#/components/schemas/SponsorDTO'
+            $ref: "../alex-api.yml#/components/schemas/SponsorDTO"
           examples:
             sample-01:
               value:
@@ -43,15 +43,15 @@ get:
                   phone: "0712 345 567"
                   email: "someone@ing.nl"
                   address: "Amsterdam"
-    '404':
-      $ref: '../alex-api.yml#/components/responses/NotFound'
+    "404":
+      $ref: "../alex-api.yml#/components/responses/NotFound"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
 put:
   operationId: updateSponsor
   summary: Update sponsor.
@@ -60,27 +60,26 @@ put:
     - "sponsors"
     - "update"
   parameters:
-    - $ref: '../alex-api.yml#/components/parameters/CommonIdParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter' 
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   requestBody:
     description: Sponsor data.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/SponsorUpdateDTO'
+          $ref: "../alex-api.yml#/components/schemas/SponsorUpdateDTO"
   responses:
-    '204':
+    "204":
       description: Updated
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
 delete:
   operationId: deleteSponsor
   summary: Delete sponsor.
@@ -91,12 +90,12 @@ delete:
   parameters:
     - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
   responses:
-    '200':
+    "200":
       description: OK
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"

@@ -1,3 +1,4 @@
+---
 in: query
 name: skip
 schema:
@@ -8,3 +9,4 @@ schema:
 required: false
 description: >
   Number of items to skip.
+

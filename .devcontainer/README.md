@@ -6,19 +6,19 @@ A few words about dev environment. Also, check [specs readme](../specs/README.md
 
 Open _terminal_ and run:
 
-```
+```bash
 swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml && open-api-mocker -s specs/alex-api-bundle.yml -w
 ```
 
 Or just build of _yaml_ file for situations where _alex-nginx_ routes to _alex-api-mock_ service:
 
-```
+```bash
 swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
 ```
 
 ## Extracting _alex-api-bundle.yml_ from _devcontainer_
 
-After building ```specs/alex-api-bundle.yml```, use something like ```docker cp f477097d0bb9:/workspaces/alex-api/specs/alex-api-bundle.yml ~/tmp/alex-api-bundle.yml```, where ```f477097d0bb9``` container ID can be found out using ```docker ps``` in ```CONTAINER ID``` column at the ```vsc-alex-api-cff2296e...``` image.
+After building `specs/alex-api-bundle.yml`, use something like `docker cp f477097d0bb9:/workspaces/alex-api/specs/alex-api-bundle.yml ~/tmp/alex-api-bundle.yml`, where `f477097d0bb9` container ID can be found out using `docker ps` in `CONTAINER ID` column at the `vsc-alex-api-cff2296e...` image.
 
 ## DEV environment options
 
@@ -30,17 +30,17 @@ Use _devcontainer_ as-is provided in repo.
 
 Change in [docker-compose.devcontainer.yml](docker-compose.devcontainer.yml), under _alex-nginx_ service, under _volumes_, the following line:
 
-```
+```bash
 - ./nginx.dev.conf:/etc/nginx/conf.d/nginx.conf
 ```
 
 to this line:
 
-```
+```bash
 - ./nginx.mock.conf:/etc/nginx/conf.d/nginx.conf
 ```
 
-Then ```CTRL+SHIFT+P``` and choose _Remote-Containers: Rebuild Container_.
+Then `CTRL+SHIFT+P` and choose _Remote-Containers: Rebuild Container_.
 
 ## Roadmap
 

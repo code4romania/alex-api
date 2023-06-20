@@ -1,3 +1,4 @@
+---
 get:
   operationId: getCSO
   summary: Gets current CSO
@@ -7,36 +8,35 @@ get:
     - get
   parameters:
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   responses:
-    '200':
+    "200":
       description: Gets current CSO.
       content:
         application/json:
           schema:
-            $ref: '../alex-api.yml#/components/schemas/CsoDTO'
+            $ref: "../alex-api.yml#/components/schemas/CsoDTO"
           examples:
             sample:
               value:
-                name: 'Code4Romania'
-                fiscalId: '123456'
-                registryNumber: 'g64bncd73'
+                name: "Code4Romania"
+                fiscalId: "123456"
+                registryNumber: "g64bncd73"
                 legalRepresentative:
                   firstName: Someone Other
                   lastName: Legal Stuff
                   phone: "0712 345 567"
                   email: "someone@ing.nl"
                   address: "Amsterdam"
-    '404':
-      $ref: '../alex-api.yml#/components/responses/NotFound'
+    "404":
+      $ref: "../alex-api.yml#/components/responses/NotFound"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
 post:
   operationId: createCSO
   summary: Creates a new CSO
@@ -49,9 +49,9 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../alex-api.yml#/components/schemas/CsoDTO'
+          $ref: "../alex-api.yml#/components/schemas/CsoDTO"
   responses:
-    '201':
+    "201":
       description: Created.
       content:
         text/plain:
@@ -64,9 +64,9 @@ post:
               value:
                 id: tenant-id
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"

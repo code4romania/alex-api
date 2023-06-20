@@ -1,10 +1,11 @@
+---
 type: object
 title: ResponseDTO
 description: Error message DTO.
 properties:
   level:
     type: string
-    enum: [debug,info,warn,error]
+    enum: [debug, info, warn, error]
     description: Message error level.
   message:
     type: string

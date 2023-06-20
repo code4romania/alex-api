@@ -1,8 +1,13 @@
+---
 in: header
 name: "Accept"
 schema:
   type: string
-  enum: [application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]
+  enum:
+    [
+      application/json,
+      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+    ]
   default: application/json
 required: false
 description: Export format parameter specified in Accepts header.

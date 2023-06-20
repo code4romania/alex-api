@@ -1,3 +1,4 @@
+---
 in: header
 name: "Accept-Language"
 schema:
@@ -5,3 +6,4 @@ schema:
   default: ro-RO
 required: false
 description: Culture parameter. Can be ro-RO, en-GB
+

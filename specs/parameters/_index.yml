@@ -1,3 +1,4 @@
+---
 CommonIdParameter:
   $ref: "./common-id-parameter.yml"
 CommonFileIdParameter:
@@ -8,8 +9,6 @@ CommonSkipParameter:
   $ref: "./common-skip-parameter.yml"
 CommonSortParameter:
   $ref: "./common-sort-parameter.yml"
-CommonTenantParameter:
-  $ref: "./common-tenant-parameter.yml"
 CommonTopParameter:
   $ref: "./common-top-parameter.yml"
 ExportFormatParameter:

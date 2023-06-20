@@ -1,7 +1,8 @@
+---
 get:
   operationId: getBalanceSheetItemFiles
   summary: Gets balance sheet item file list.
-  description: > 
+  description: >
     Gets balance sheet item file list.
   tags:
     - "balance-sheets"
@@ -12,31 +13,28 @@ get:
     # Balance sheet item ID
     - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   responses:
-    '200':
+    "200":
       description: Gets balance sheet item file list.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../alex-api.yml#/components/schemas/FileMetadataDTO'
+              $ref: "../alex-api.yml#/components/schemas/FileMetadataDTO"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
 post:
   operationId: createBalanceSheetItemFile
   summary: Attach file(s) to balance sheet item.
   description: >
-    Attach file(s) to balance sheet item. Can upload multiple files,
-    see https://swagger.io/docs/specification/describing-request-body/file-upload/
-    for sample request.
+    Attach file(s) to balance sheet item. Can upload multiple files, see https://swagger.io/docs/specification/describing-request-body/file-upload/ for sample request.
   tags:
     - "balance-sheets"
     - "balance-sheets-items"
@@ -46,8 +44,7 @@ post:
     # Balance sheet item ID
     - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
     # Common general parameters
-    - $ref: '../alex-api.yml#/components/parameters/CommonTenantParameter'
-    - $ref: '../alex-api.yml#/components/parameters/CommonCultureParameter'
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
   requestBody:
     required: true
     content:
@@ -62,12 +59,12 @@ post:
                 type: string
                 format: binary
   responses:
-    '201':
-      $ref: '../alex-api.yml#/components/responses/Created'
+    "201":
+      $ref: "../alex-api.yml#/components/responses/Created"
     # Common responses
-    '400':
-      $ref: '../alex-api.yml#/components/responses/InvalidOperation'
-    '401':
-      $ref: '../alex-api.yml#/components/responses/UnauthorizedError'
-    '403':
-      $ref: '../alex-api.yml#/components/responses/ForbiddenError'
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"

@@ -1,3 +1,4 @@
+---
 type: object
 title: FileMetadataDTO
 description: Common file attachment DTO.

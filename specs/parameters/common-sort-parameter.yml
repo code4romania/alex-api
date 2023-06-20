@@ -1,8 +1,9 @@
+---
 in: query
 name: sort
 schema:
   type: string
-  enum: [asc, desc]
+  enum: [ asc, desc ]
   default: asc
 required: false
 description: >

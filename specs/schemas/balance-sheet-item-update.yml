@@ -1,3 +1,4 @@
+---
 type: object
 title: BalanceSheetItemUpdateDTO
 required:
@@ -25,11 +26,9 @@ properties:
     description: Amount. No currency specified, account DTO already has that info.
   direction:
     type: string
-    enum: ['credit', 'debit']
+    enum: ["credit", "debit"]
     description: >
-      The direction of the amount:
-      - credit: incoming amount
-      - debit: spent amount
+      The direction of the amount: - credit: incoming amount - debit: spent amount
   deduction:
     type: boolean
     description: If this item is a deduction or not.
@@ -42,4 +41,3 @@ properties:
   categoryId:
     type: string
     description: Balance sheet category ID.
-  
