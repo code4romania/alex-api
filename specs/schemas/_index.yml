@@ -13,6 +13,8 @@ CsoDTO:
   $ref: "./cso.yml"
 FileMetadataDTO:
   $ref: "./common-file-metadata.yml"
+GrantDTO:
+  $ref: "./grant.yml"
 SponsorDTO:
   $ref: "./sponsor.yml"
 SponsorUpdateDTO:

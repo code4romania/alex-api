@@ -5,7 +5,7 @@ erDiagram
   CSO ||--o{ GRANT : receives
   CSO ||--|{ ACCOUNT : has
   CSO ||--|{ EXPENSE_CATEGORY : has
-  
+
   GRANT }o--|| FINANCIER : paid
   GRANT ||..o{ PARTNERSHIP : "can have"
   GRANT ||--|{ PAYMENT : has
@@ -13,8 +13,8 @@ erDiagram
   GRANT ||--o{ REPORT_SCHEDULE : has
   GRANT ||--|{ BUDGET_LINE : has
   GRANT ||--o{ NOTE : "can have"
-  
-  
+
+
 
   BUDGET_LINE |o--o{ BUDGET_CATEGORY : has
   BUDGET_LINE ||..|{ BUDGET_PARTNER_DETAILS : "can have"
@@ -25,7 +25,7 @@ erDiagram
   BALANCE_SHEET_ITEM ||--|| ACCOUNT : "has"
 
   BALANCE_SHEET_ITEM }o--o{ EXPENSE : "associated with"
-  
+
   EXPENSE }o--o{ BUDGET_LINE : "can be allocated to"
   EXPENSE }o--o{ GRANT : "can be allocated to"
   EXPENSE ||--|| EXPENSE_CATEGORY : "is"
@@ -46,7 +46,7 @@ erDiagram
         bool    IsCash
   }
 
-  FINANCIER {
+  SPONSOR {
     string    Name
     string    Description
     string    Alias
@@ -137,51 +137,56 @@ erDiagram
 ## CO-fund example
 
 ---
+
 FUll sum = 100k
 Self co-fund value = 10k
 Partner#1 co-fund value= 5k
 Partner#2 co-fund value= 15k
+
 ---
 
 Grant properties:
+
 - Value:100k
-- RegrantedValue: `Value` - `self-co-found-value` - SUM(`Partnerships.Values`) 
-    =(100 - 10 - (5+15)) = 70k (calculated field)
+- RegrantedValue: `Value` - `self-co-found-value` - SUM(`Partnerships.Values`)
+  =(100 - 10 - (5+15)) = 70k (calculated field)
 - self-co-found-value: 10k
 - Partnerships:
-    - partner: Partner#1
-      Value: 5k
-    - partner: Partner#2
-      Value: 15k
+
+  - partner: Partner#1
+    Value: 5k
+  - partner: Partner#2
+    Value: 15k
 
 - Budget:
-    - `category`: Development
-        - `description`: UX/UI Design
-        - `value`: 3600
-        - `re-granted-value`: (value - co-fund-self-value - SUM(Partner.  - co-fund-value + Partner.Value)) (calculated field)
-        - `co-funded`: true
-        - `co-fund-self-value`: 200
-        - partners:
-            - partner: Partner#1
-              `co-fund-value`: 0
-              `Value`: 200
-            - partner: Partner#2
-              co-fund-value: 0
-              Value: 0       
+
+  - `category`: Development
+
+    - `description`: UX/UI Design
+    - `value`: 3600
+    - `re-granted-value`: (value - co-fund-self-value - SUM(Partner. - co-fund-value + Partner.Value)) (calculated field)
+    - `co-funded`: true
+    - `co-fund-self-value`: 200
+    - partners:
+      - partner: Partner#1
+        `co-fund-value`: 0
+        `Value`: 200
+      - partner: Partner#2
+        co-fund-value: 0
+        Value: 0
 
   - category: administrative
     value: 40k
     co-funded: true
     co-fund-self-value: ?
-    co-fund-partners:
-        - partner: Partner#1
-          Value: ?
-        - partner: Partner#2
-          Value: ?
+    co-fund-partners: - partner: Partner#1
+    Value: ? - partner: Partner#2
+    Value: ?
 
   - 10k
 
 > Validation rules:
+>
 > - grant.self-co-fund-value = SUM(BUDGET.co-fund-self-value)
 > - grant.Partnerships.partner#X.Value = SUM(BUDGET.co-fund-partners.partner#x.Value)
 > - grant.value = SUM(BUDGET.value)

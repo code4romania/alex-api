@@ -1,0 +1,11 @@
+---
+type: object
+name: GrantDTO
+properties:
+  name:
+    type: string
+    description: A name describing the grant.
+  fundType:
+    type: string
+    enum: [ f1, f2, f3 ]
+    description: Fund type.
