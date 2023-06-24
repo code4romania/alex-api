@@ -1,4 +1,4 @@
-openapi: '3.0.3'
+openapi: "3.0.3"
 info:
   title: ALEX API
   version: 1.0.0
@@ -7,31 +7,33 @@ info:
   # Validate using: swagger-cli validate specs/alex-api.yml
   # Bundle using: swagger-cli bundle specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml
 servers:
-  - url: '{server}/api'
+  - url: "{server}/api"
     variables:
       server:
         default: https://alex.local
 paths:
   /v1/hc:
-    $ref: './resources/hc.yml'
+    $ref: "./resources/hc.yml"
   /v1/accounts:
-    $ref: './resources/accounts.yml'
-  /v1/accounts/{id}:
-    $ref: './resources/account.yml'
+    $ref: "./resources/accounts.yml"
+  "/v1/accounts/{id}":
+    $ref: "./resources/account.yml"
   /v1/balance-sheet/items:
-    $ref: './resources/balance-sheet-items.yml'
-  /v1/balance-sheet/items/{id}:
-    $ref: './resources/balance-sheet-item.yml'
-  /v1/balance-sheet/items/{id}/files:
-    $ref: './resources/balance-sheet-item-files.yml'
-  /v1/balance-sheet/items/{id}/files/{fileId}:
-    $ref: './resources/balance-sheet-item-file.yml'
+    $ref: "./resources/balance-sheet-items.yml"
+  "/v1/balance-sheet/items/{id}":
+    $ref: "./resources/balance-sheet-item.yml"
+  "/v1/balance-sheet/items/{id}/files":
+    $ref: "./resources/balance-sheet-item-files.yml"
+  "/v1/balance-sheet/items/{id}/files/{fileId}":
+    $ref: "./resources/balance-sheet-item-file.yml"
   /v1/cso:
-    $ref: './resources/cso.yml'
+    $ref: "./resources/cso.yml"
+  "/v1/grants/{id}":
+    $ref: "./resources/grant.yml"
   /v1/sponsors:
-    $ref: './resources/sponsors.yml'
-  /v1/sponsors/{id}:
-    $ref: './resources/sponsor.yml'
+    $ref: "./resources/sponsors.yml"
+  "/v1/sponsors/{id}":
+    $ref: "./resources/sponsor.yml"
 components:
   schemas:
     $ref: "./schemas/_index.yml"
@@ -43,6 +45,6 @@ components:
   parameters:
     $ref: "./parameters/_index.yml"
   responses:
-    $ref: './components/responses.yml'
+    $ref: "./components/responses.yml"
 security:
   - bearerAuth: []

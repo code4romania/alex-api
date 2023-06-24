@@ -1,0 +1,30 @@
+---
+get:
+  operationId: getGrant
+  summary: Gets grant details.
+  tags:
+    - "grants"
+  parameters:
+    - $ref: "../alex-api.yml#/components/parameters/CommonIdParameter"
+    - $ref: "../alex-api.yml#/components/parameters/CommonCultureParameter"
+  responses:
+    "200":
+      description: Gets specified grant details.
+      content:
+        application/json:
+          schema:
+            $ref: "../alex-api.yml#/components/schemas/GrantDTO"
+          examples:
+            sample-01:
+              value:
+                id: grant-01
+                name: Grant 01
+    "404":
+      $ref: "../alex-api.yml#/components/responses/NotFound"
+    # Common responses
+    "400":
+      $ref: "../alex-api.yml#/components/responses/InvalidOperation"
+    "401":
+      $ref: "../alex-api.yml#/components/responses/UnauthorizedError"
+    "403":
+      $ref: "../alex-api.yml#/components/responses/ForbiddenError"
